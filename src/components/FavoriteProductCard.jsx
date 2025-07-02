@@ -10,7 +10,9 @@ export default function FavoriteProductCard(props) {
         <Card.Img variant="top" src={props.img} alt={props.name} />
 
         <Card.Text>{props.description}</Card.Text>
-        <Button variant="primary">View Product</Button>
+        <Button variant="primary" target="_blank" href={props.externalLink}>
+          View Product
+        </Button>
       </Card.Body>
     </Card>
   );
