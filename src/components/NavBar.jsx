@@ -10,7 +10,7 @@ export default function NavBar() {
       style={{ position: "absolute", top: 0, left: 0, width: "100%" }}
     >
       <Container>
-        <Navbar.Brand href="/">Chapman Pickleball</Navbar.Brand>
+        <Navbar.Brand href="/">Chapman Pickleball Coaching</Navbar.Brand>
         <Nav>
           <Nav.Link href="#coaching-opportunities">
             Coaching Opportunities
