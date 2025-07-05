@@ -39,7 +39,12 @@ export default function CoachingOpportunities() {
           {lessonTypes.map((lesson) => {
             return (
               <Col style={{ margin: "1rem" }}>
-                <LessonCard key={lesson.title} {...lesson} />
+                <LessonCard
+                  key={lesson.title}
+                  {...lesson}
+                  showLongDescription={true}
+                  height={"600px"}
+                />
               </Col>
             );
           })}

@@ -1,4 +1,5 @@
 import Image from "react-bootstrap/Image";
+import CoachingCardsCarousel from "./CoachingCardsCarousel";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
         alt="Colin hitting a pickleball"
         fluid
       />
+      <CoachingCardsCarousel />
     </div>
   );
 }
