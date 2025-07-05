@@ -1,5 +1,6 @@
 import Image from "react-bootstrap/Image";
 import CoachingCardsCarousel from "./CoachingCardsCarousel";
+import AboutColin from "./AboutColin";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         fluid
       />
       <CoachingCardsCarousel />
+      <AboutColin />
     </div>
   );
 }
