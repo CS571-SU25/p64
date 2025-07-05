@@ -1,6 +1,6 @@
 import "./App.css";
 import { HashRouter, Routes, Route } from "react-router";
-import Home from "./components/Home";
+import Home from "./components/homePage/Home";
 import CoachingOpportunities from "./components/CoachingOpportunities";
 import BookLesson from "./components/BookLesson";
 import FavoriteProducts from "./components/FavoriteProducts";

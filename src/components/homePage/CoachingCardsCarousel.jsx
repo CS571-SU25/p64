@@ -1,11 +1,11 @@
 import Carousel from "react-bootstrap/Carousel";
-import LessonCard from "./LessonCard";
+import LessonCard from "../LessonCard";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
 
-import { lessonTypes } from "./BookLesson";
+import { lessonTypes } from "../BookLesson";
 
 export default function CoachingCardsCarousel() {
   const [carouselIndex, setCarouselIndex] = useState(0);
