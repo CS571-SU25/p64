@@ -21,59 +21,45 @@ export default function CoachingCardsCarousel(props) {
         data-bs-theme="dark"
         activeIndex={carouselIndex}
         onSelect={handleSelect}
-        indicator={false}
         slide={false}
       >
-        <Carousel.Item>
-          {props.showLessonCard ? (
-            <Container>
-              <Row>
-                {lessonTypes.map((lesson, index) => {
-                  const maxIndex = carouselIndex + 2;
-                  if (index >= carouselIndex && index <= maxIndex) {
-                    return (
-                      <Col style={{ margin: "1rem" }}>
-                        <LessonCard
-                          key={lesson.title}
-                          {...lesson}
-                          showLongDescription={false}
-                          height={"300px"}
-                        />
-                      </Col>
-                    );
-                  }
-                })}
-              </Row>
-            </Container>
-          ) : (
-            <div></div>
-          )}
-        </Carousel.Item>
-        <Carousel.Item>
-          {props.showLessonCard ? (
-            <Container>
-              <Row>
-                {lessonTypes.map((lesson, index) => {
-                  const maxIndex = carouselIndex + 2;
-                  if (index >= carouselIndex && index <= maxIndex) {
-                    return (
-                      <Col style={{ margin: "1rem" }}>
-                        <LessonCard
-                          key={lesson.title}
-                          {...lesson}
-                          showLongDescription={false}
-                          height={"300px"}
-                        />
-                      </Col>
-                    );
-                  }
-                })}
-              </Row>
-            </Container>
-          ) : (
-            <div></div>
-          )}
-        </Carousel.Item>
+        {lessonTypes.map((lessonHere, outerIndex) => {
+          if (outerIndex <= lessonTypes.length % 3) {
+            return (
+              <Carousel.Item key={`out-index-" + ${outerIndex % 3}`}>
+                {props.showLessonCard ? (
+                  <Container>
+                    <Row>
+                      {lessonTypes.map((lesson, innerIndex) => {
+                        const maxIndex = carouselIndex + 2;
+                        if (
+                          innerIndex >= carouselIndex &&
+                          innerIndex <= maxIndex
+                        ) {
+                          return (
+                            <Col
+                              style={{ margin: "1rem" }}
+                              key={`inner-index-" + ${innerIndex}`}
+                            >
+                              <LessonCard
+                                key={lesson.title}
+                                {...lesson}
+                                showLongDescription={false}
+                                height={"300px"}
+                              />
+                            </Col>
+                          );
+                        }
+                      })}
+                    </Row>
+                  </Container>
+                ) : (
+                  <div></div>
+                )}
+              </Carousel.Item>
+            );
+          }
+        })}
       </Carousel>
     </div>
   );
