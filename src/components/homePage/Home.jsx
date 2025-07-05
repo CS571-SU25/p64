@@ -1,5 +1,5 @@
 import Image from "react-bootstrap/Image";
-import CoachingCardsCarousel from "./CoachingCardsCarousel";
+import CardsCarousel from "./CardsCarousel";
 import AboutColin from "./AboutColin";
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
         alt="Colin hitting a pickleball"
         fluid
       />
-      <CoachingCardsCarousel />
+      <CardsCarousel heading={"Coaching Opportunities"} showLessonCard={true} />
       <AboutColin />
     </div>
   );
