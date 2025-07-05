@@ -26,6 +26,7 @@ function App() {
           ></Route>
           <Route path="/about-me" element={<AboutMe />}></Route>
           <Route path="/contact-me" element={<ContactMe />}></Route>
+          <Route path="*" element={<Home />}></Route>
         </Routes>
       </HashRouter>
     </div>
