@@ -5,9 +5,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import FavoriteProductCard from "../FavoriteProductCard";
-import { favoriteProducts } from "../FavoriteProducts";
-
-import { lessonTypes } from "../BookLesson";
 
 export default function CoachingCardsCarousel(props) {
   const [carouselIndex, setCarouselIndex] = useState(0);
@@ -24,63 +21,41 @@ export default function CoachingCardsCarousel(props) {
         activeIndex={carouselIndex}
         onSelect={handleSelect}
         slide={false}
+        indicators={false}
       >
-        {lessonTypes.map((lessonHere, outerIndex) => {
-          if (outerIndex <= lessonTypes.length % 3) {
+        {props.items.map((itemsFor, outerIndex) => {
+          if (outerIndex <= Math.ceil(props.items.length / 3) - 1) {
             return (
               <Carousel.Item key={`out-index-" + ${outerIndex % 3}`}>
-                {props.showLessonCard ? (
-                  <Container>
-                    <Row>
-                      {lessonTypes.map((lesson, innerIndex) => {
-                        const maxIndex = carouselIndex + 2;
-                        if (
-                          innerIndex >= carouselIndex &&
-                          innerIndex <= maxIndex
-                        ) {
-                          return (
-                            <Col
-                              style={{ margin: "1rem" }}
-                              key={`inner-index-" + ${innerIndex}`}
-                            >
+                <Container>
+                  <Row>
+                    {props.items.map((item, innerIndex) => {
+                      const maxIndex = carouselIndex + 2;
+                      if (
+                        innerIndex >= carouselIndex &&
+                        innerIndex <= maxIndex
+                      ) {
+                        return (
+                          <Col
+                            style={{ margin: "1rem" }}
+                            key={`inner-index-" + ${innerIndex}`}
+                          >
+                            {props.showLessonCard ? (
                               <LessonCard
-                                key={lesson.title}
-                                {...lesson}
+                                key={item.title}
+                                {...item}
                                 showLongDescription={false}
                                 height={"300px"}
                               />
-                            </Col>
-                          );
-                        }
-                      })}
-                    </Row>
-                  </Container>
-                ) : (
-                  <Container>
-                    <Row>
-                      {favoriteProducts.map((product, innerIndex) => {
-                        const maxIndex = carouselIndex + 2;
-                        if (
-                          innerIndex >= carouselIndex &&
-                          innerIndex <= maxIndex
-                        ) {
-                          return (
-                            <Col
-                              style={{ margin: "1rem" }}
-                              key={`inner-index-" + ${innerIndex}`}
-                            >
-                              <FavoriteProductCard
-                                key={product.name}
-                                {...product}
-                              />
-                              ;
-                            </Col>
-                          );
-                        }
-                      })}
-                    </Row>
-                  </Container>
-                )}
+                            ) : (
+                              <FavoriteProductCard key={item.name} {...item} />
+                            )}
+                          </Col>
+                        );
+                      }
+                    })}
+                  </Row>
+                </Container>
               </Carousel.Item>
             );
           }
