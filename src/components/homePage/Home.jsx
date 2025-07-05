@@ -12,6 +12,7 @@ export default function Home() {
       />
       <CardsCarousel heading={"Coaching Opportunities"} showLessonCard={true} />
       <AboutColin />
+      <CardsCarousel heading={"Favorite Products"} showLessonCard={false} />
     </div>
   );
 }

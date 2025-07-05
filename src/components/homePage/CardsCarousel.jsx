@@ -4,6 +4,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { useState } from "react";
+import FavoriteProductCard from "../FavoriteProductCard";
+import { favoriteProducts } from "../FavoriteProducts";
 
 import { lessonTypes } from "../BookLesson";
 
@@ -54,7 +56,30 @@ export default function CoachingCardsCarousel(props) {
                     </Row>
                   </Container>
                 ) : (
-                  <div></div>
+                  <Container>
+                    <Row>
+                      {favoriteProducts.map((product, innerIndex) => {
+                        const maxIndex = carouselIndex + 2;
+                        if (
+                          innerIndex >= carouselIndex &&
+                          innerIndex <= maxIndex
+                        ) {
+                          return (
+                            <Col
+                              style={{ margin: "1rem" }}
+                              key={`inner-index-" + ${innerIndex}`}
+                            >
+                              <FavoriteProductCard
+                                key={product.name}
+                                {...product}
+                              />
+                              ;
+                            </Col>
+                          );
+                        }
+                      })}
+                    </Row>
+                  </Container>
                 )}
               </Carousel.Item>
             );
