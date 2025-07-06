@@ -11,7 +11,7 @@ import BottomPane from "./components/pageGlobals/BottomPane";
 
 function App() {
   return (
-    <div>
+    <div class="page">
       <TopNavBar />
       <HashRouter>
         <Routes>

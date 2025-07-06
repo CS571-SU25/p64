@@ -17,8 +17,8 @@ export default function BottomPane() {
         <Stack gap={4} direction="horizontal">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="25"
+            height="25"
             fill="currentColor"
             class="bi bi-instagram"
             viewBox="0 0 16 16"
@@ -27,8 +27,8 @@ export default function BottomPane() {
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="25"
+            height="25"
             fill="currentColor"
             class="bi bi-youtube"
             viewBox="0 0 16 16"
@@ -37,8 +37,8 @@ export default function BottomPane() {
           </svg>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
+            width="25"
+            height="25"
             fill="currentColor"
             class="bi bi-tiktok"
             viewBox="0 0 16 16"
