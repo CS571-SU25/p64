@@ -23,7 +23,11 @@ export default function LessonCard(props) {
           <Card.Text>{props.shortDescription}</Card.Text>
         )}
       </Card.Body>
-      <Button variant="primary">Book Lesson</Button>
+      {props.id === 4 ? (
+        <Button variant="primary">Purchase PDF</Button>
+      ) : (
+        <Button variant="primary">Book Lesson</Button>
+      )}
     </Card>
   );
 }
