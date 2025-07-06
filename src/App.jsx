@@ -11,27 +11,22 @@ import BottomPane from "./components/pageGlobals/BottomPane";
 
 function App() {
   return (
-    <div class="page">
+    <HashRouter>
       <TopNavBar />
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route
-            path="/coaching-opportunities"
-            element={<CoachingOpportunities />}
-          ></Route>
-          <Route path="/book-lesson" element={<BookLesson />}></Route>
-          <Route
-            path="/favorite-products"
-            element={<FavoriteProducts />}
-          ></Route>
-          <Route path="/about-me" element={<AboutMe />}></Route>
-          <Route path="/contact-me" element={<ContactMe />}></Route>
-          <Route path="*" element={<Home />}></Route>
-        </Routes>
-      </HashRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route
+          path="/coaching-opportunities"
+          element={<CoachingOpportunities />}
+        ></Route>
+        <Route path="/book-lesson" element={<BookLesson />}></Route>
+        <Route path="/favorite-products" element={<FavoriteProducts />}></Route>
+        <Route path="/about-me" element={<AboutMe />}></Route>
+        <Route path="/contact-me" element={<ContactMe />}></Route>
+        <Route path="*" element={<Home />}></Route>
+      </Routes>
       <BottomPane />
-    </div>
+    </HashRouter>
   );
 }
 
