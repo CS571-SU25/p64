@@ -1,9 +1,7 @@
 import IndividualLessonForm from "./IndividualLessonForm";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const lessonTypes = [
   {

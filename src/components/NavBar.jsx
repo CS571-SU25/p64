@@ -1,25 +1,64 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
 
 export default function NavBar() {
   return (
     <Navbar
-      bg="dark"
-      data-bs-theme="dark"
-      style={{ position: "absolute", top: 0, left: 0, width: "100%" }}
+      fixed="top"
+      style={{
+        padding: "1rem",
+        background: "#010a2b",
+        color: "#ffffff",
+      }}
     >
-      <Container>
-        <Navbar.Brand href="/">Chapman Pickleball Coaching</Navbar.Brand>
-        <Nav>
-          <Nav.Link href="#coaching-opportunities">
+      <Container fluid>
+        <Navbar.Brand
+          href="/"
+          style={{
+            color: "#ffffff",
+          }}
+        >
+          Chapman Pickleball Coaching
+        </Navbar.Brand>
+        <Nav className="me-auto my-2 my-lg-0">
+          <Nav.Link
+            href="#coaching-opportunities"
+            style={{
+              color: "#ffffff",
+            }}
+          >
             Coaching Opportunities
           </Nav.Link>
-          <Nav.Link href="#book-lesson">Book a Lesson</Nav.Link>
-          <Nav.Link href="#favorite-products">Favorite Products</Nav.Link>
-          <Nav.Link href="#about-me">About Me</Nav.Link>
-          <Nav.Link href="#contact-me">Contact Me</Nav.Link>
+          <Nav.Link
+            href="#favorite-products"
+            style={{
+              color: "#ffffff",
+            }}
+          >
+            Favorite Products
+          </Nav.Link>
+          <Nav.Link
+            href="#about-me"
+            style={{
+              color: "#ffffff",
+            }}
+          >
+            About Me
+          </Nav.Link>
+          <Nav.Link
+            href="#contact-me"
+            style={{
+              color: "#ffffff",
+            }}
+          >
+            Contact Me
+          </Nav.Link>
         </Nav>
+        <Button className="d-flex" href={"#book-lesson"} variant="primary">
+          Book a Lesson
+        </Button>
       </Container>
     </Navbar>
   );
