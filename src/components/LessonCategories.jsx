@@ -1,13 +1,12 @@
 import Stack from "react-bootstrap/Stack";
-import { lessonTypes } from "./BookLesson";
 import LessonCard from "./LessonCard";
 
-export default function LessonCategories() {
+export default function LessonCategories(props) {
   return (
-    <Stack style={{ backgroundColor: "purple", margin: "2rem" }}>
-      <h2 style={{ textAlign: "left" }}>In-Person Lessons</h2>
+    <Stack style={{ backgroundColor: "#e68649", margin: "2rem" }}>
+      <h2 style={{ padding: "1rem" }}>{props.heading}</h2>
       <Stack direction="horizontal" className="mx-auto">
-        {lessonTypes.map((lesson) => {
+        {props.data.map((lesson) => {
           return (
             <div style={{ margin: "1rem" }}>
               <LessonCard
