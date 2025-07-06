@@ -5,7 +5,7 @@ export default function LessonCard(props) {
   return (
     <Card
       style={{
-        width: "300px",
+        width: props.width,
         height: props.height,
         textAlign: "center",
       }}

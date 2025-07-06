@@ -45,6 +45,7 @@ export default function CoachingCardsCarousel(props) {
                                 {...item}
                                 showLongDescription={false}
                                 height={"300px"}
+                                width={"300px"}
                               />
                             ) : (
                               <FavoriteProductCard key={item.name} {...item} />
