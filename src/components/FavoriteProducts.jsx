@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 export const favoriteProducts = [
   {
     favoriteTitle: "Favorite Power Paddle",
-    img: "./public/Selkirk-SLK-ERA-Power.png",
+    img: "./Selkirk-SLK-ERA-Power.png",
     name: "Selkirk SLK ERA Power",
     description: "Some description here",
     externalLink:
@@ -14,21 +14,21 @@ export const favoriteProducts = [
   },
   {
     favoriteTitle: "Favorite All Court Paddle",
-    img: "./public/J2K.png",
+    img: "./J2K.png",
     name: "Honolulu J2k",
     description: "Some description here",
     externalLink: "https://808pickle.com/products/sword-shield-j2k",
   },
   {
     favoriteTitle: "Favorite Control Paddle",
-    img: "./public/11six24.png",
+    img: "./11six24.png",
     name: "11six24 Pegasus JellyBean",
     description: "Some description here",
     externalLink: "https://11six24.com/products/pegasus-jelly-bean",
   },
   {
     favoriteTitle: "Favorite Grips",
-    img: "./public/pro-track-overgrip.png",
+    img: "./pro-track-overgrip.png",
     name: "Bodhi ProTack Overgrips",
     description: "Some description here",
     externalLink:
@@ -36,7 +36,7 @@ export const favoriteProducts = [
   },
   {
     favoriteTitle: "Favorite Balls",
-    img: "./public/franklin-x-40.png",
+    img: "./franklin-x-40.png",
     name: "Franklin X-40",
     description: "Some description here",
     externalLink:
@@ -44,7 +44,7 @@ export const favoriteProducts = [
   },
   {
     favoriteTitle: "Best Apparel",
-    img: "./public/centerline.png",
+    img: "./centerline.png",
     name: "Centerline Athletics",
     description: "Some description here",
     externalLink:

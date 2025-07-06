@@ -11,7 +11,7 @@ export default function AboutColin() {
         <Col>
           <img
             style={{ width: "100%" }}
-            src="./public/about-colin.jpg"
+            src="./about-colin.jpg"
             alt="Colin spiking a pickleball"
           />
         </Col>

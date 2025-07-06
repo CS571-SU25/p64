@@ -7,11 +7,7 @@ import { favoriteProducts } from "../FavoriteProducts";
 export default function Home() {
   return (
     <div>
-      <Image
-        src="./public/colin-hitting.jpg"
-        alt="Colin hitting a pickleball"
-        fluid
-      />
+      <Image src="./colin-hitting.jpg" alt="Colin hitting a pickleball" fluid />
       <CardsCarousel
         heading={"Coaching Opportunities"}
         showLessonCard={true}
