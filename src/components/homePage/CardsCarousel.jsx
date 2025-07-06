@@ -17,7 +17,6 @@ export default function CoachingCardsCarousel(props) {
     <div>
       <h1 style={{ textAlign: "center" }}>{props.heading}</h1>
       <Carousel
-        data-bs-theme="dark"
         activeIndex={carouselIndex}
         onSelect={handleSelect}
         slide={false}

@@ -3,7 +3,14 @@ import Card from "react-bootstrap/Card";
 
 export default function LessonCard(props) {
   return (
-    <Card style={{ width: "18rem", height: props.height, margin: "auto" }}>
+    <Card
+      style={{
+        width: "300px",
+        height: props.height,
+        margin: "auto",
+        textAlign: "center",
+      }}
+    >
       <Card.Title>{props.title}</Card.Title>
       <Card.Subtitle>{props.price}</Card.Subtitle>
       <Card.Body>
