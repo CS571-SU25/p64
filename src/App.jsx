@@ -6,12 +6,13 @@ import BookLesson from "./components/BookLesson";
 import FavoriteProducts from "./components/FavoriteProducts";
 import AboutMe from "./components/AboutMe";
 import ContactMe from "./components/ContactMe";
-import NavBar from "./components/NavBar";
+import TopNavBar from "./components/pageGlobals/TopNavBar";
+import BottomPane from "./components/pageGlobals/BottomPane";
 
 function App() {
   return (
     <div>
-      <NavBar />
+      <TopNavBar />
       <HashRouter>
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -29,6 +30,7 @@ function App() {
           <Route path="*" element={<Home />}></Route>
         </Routes>
       </HashRouter>
+      <BottomPane />
     </div>
   );
 }

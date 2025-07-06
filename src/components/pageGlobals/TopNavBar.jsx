@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 
-export default function NavBar() {
+export default function TopNavBar() {
   return (
     <Navbar
       fixed="top"
