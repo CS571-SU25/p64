@@ -16,7 +16,7 @@ export const lessonTypes = [
   {
     id: 2,
     title: "Online Film Review",
-    price: "$50 per 30 minutes of footage",
+    price: "$50/30 minutes of footage",
     description:
       "Submit up to 30 minutes of game footage and identify which player you are. Colin will personally review your match, analyzing key moments and providing a detailed video breakdown with insights, strategy adjustments, and specific areas for improvement. It’s like having a private coaching session on your own schedule.",
     shortDescription:
@@ -25,7 +25,7 @@ export const lessonTypes = [
   {
     id: 3,
     title: "Three and Me",
-    price: "$90/hr- 30 per person",
+    price: "$90/hr/group",
     description:
       "You and up to two others can book a private coaching session with Colin that blends personalized instruction with live gameplay. These small-group sessions allow for focused skill development, strategic guidance, and real-time feedback, all while playing in a competitive, game-like environment.",
     shortDescription:
