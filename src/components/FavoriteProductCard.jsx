@@ -8,6 +8,7 @@ export default function FavoriteProductCard(props) {
         width: "18rem",
         height: "500px",
         textAlign: "center",
+        margin: "auto",
       }}
     >
       <Card.Title>{props.favoriteTitle}</Card.Title>
