@@ -1,19 +1,22 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { Link } from "react-router";
 import Button from "react-bootstrap/Button";
 
 export default function TopNavBar() {
   return (
     <Navbar
-      fixed="top"
+      variant="dark"
+      sticky="top"
+      expand="lg"
       style={{
-        padding: "1rem",
+        padding: "1rem 0",
         background: "#010a2b",
         color: "#ffffff",
       }}
+      collapseOnSelect
     >
       <Container fluid>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand
           href="/"
           style={{
@@ -22,40 +25,42 @@ export default function TopNavBar() {
         >
           Chapman Pickleball Coaching
         </Navbar.Brand>
-        <Nav className="me-auto my-2 my-lg-0">
-          <Nav.Link
-            href="#coaching-opportunities"
-            style={{
-              color: "#ffffff",
-            }}
-          >
-            Coaching Opportunities
-          </Nav.Link>
-          <Nav.Link
-            href="#favorite-products"
-            style={{
-              color: "#ffffff",
-            }}
-          >
-            Favorite Products
-          </Nav.Link>
-          <Nav.Link
-            href="#about-me"
-            style={{
-              color: "#ffffff",
-            }}
-          >
-            About Me
-          </Nav.Link>
-          <Nav.Link
-            href="#contact-me"
-            style={{
-              color: "#ffffff",
-            }}
-          >
-            Contact Me
-          </Nav.Link>
-        </Nav>
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav>
+            <Nav.Link
+              href="#coaching-opportunities"
+              style={{
+                color: "#ffffff",
+              }}
+            >
+              Coaching Opportunities
+            </Nav.Link>
+            <Nav.Link
+              href="#favorite-products"
+              style={{
+                color: "#ffffff",
+              }}
+            >
+              Favorite Products
+            </Nav.Link>
+            <Nav.Link
+              href="#about-me"
+              style={{
+                color: "#ffffff",
+              }}
+            >
+              About Me
+            </Nav.Link>
+            <Nav.Link
+              href="#contact-me"
+              style={{
+                color: "#ffffff",
+              }}
+            >
+              Contact Me
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
         <Button className="d-flex" href={"#book-lesson"} variant="primary">
           Book a Lesson
         </Button>
