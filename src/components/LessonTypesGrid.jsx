@@ -10,7 +10,7 @@ export default function LessonTypesGrid(props) {
       <Row>
         {lessonTypes.map((lesson) => {
           return (
-            <Col>
+            <Col style={{ marginBottom: "1rem" }}>
               <LessonCard
                 key={lesson.title}
                 {...lesson}

@@ -8,6 +8,7 @@ export default function LessonCard(props) {
         width: props.width,
         height: props.height,
         textAlign: "center",
+        margin: "auto",
       }}
     >
       <Card.Title>{props.title}</Card.Title>

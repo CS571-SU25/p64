@@ -1,25 +1,26 @@
 import Image from "react-bootstrap/Image";
-import Stack from "react-bootstrap/Stack";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 export default function AboutColin() {
   return (
-    <Stack
-      direction="horizontal"
-      style={{ backgroundColor: "#e68649", margin: "2rem 0px" }}
-    >
-      <Image
-        style={{ width: "45%" }}
-        src="./about-colin.jpg"
-        alt="Colin spiking a pickleball"
-      />
-
-      <div
+    <Row style={{ backgroundColor: "#e68649", width: "100%", margin: "0" }}>
+      <Col sm={12} md={12} lg={6} style={{ padding: "0" }}>
+        <Image
+          style={{ width: "100%" }}
+          src="./about-colin.jpg"
+          alt="Colin spiking a pickleball"
+        />
+      </Col>
+      <Col
+        sm={12}
+        md={12}
+        lg={6}
         style={{
-          fontSize: "20px",
-          lineHeight: "50px",
-          textAlign: "center",
-          width: "50%",
+          fontSize: "1.25rem",
           margin: "auto",
+          padding: "2rem",
+          lineHeight: "2rem",
         }}
       >
         Colin is a 5.0+ pickleball player who actively competes in PPA Pro
@@ -30,7 +31,7 @@ export default function AboutColin() {
         athletic performance. Now based in Verona, Wisconsin, Colin is
         passionate about helping players elevate their game through personalized
         instruction, video analysis, and game-based training.
-      </div>
-    </Stack>
+      </Col>
+    </Row>
   );
 }
