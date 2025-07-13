@@ -1,9 +1,9 @@
 import Form from "react-bootstrap/Form";
 
-export default function ContactInfoForm(props) {
+export default function ContactInfoForm() {
   return (
     <div>
-      <h2>Contact Info</h2>
+      <h2>Your Contact Info</h2>
       <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
         <Form.Label>Name</Form.Label>
         <Form.Control required type="name" placeholder="Enter name" />
