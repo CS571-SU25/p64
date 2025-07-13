@@ -1,5 +1,4 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { Link } from "react-router";
 import Button from "react-bootstrap/Button";
 
 export default function TopNavBar() {
@@ -61,7 +60,7 @@ export default function TopNavBar() {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-        <Button className="d-flex" href={"#book-lesson"} variant="primary">
+        <Button className="ms-auto" href={"#book-lesson"} variant="primary">
           Book a Lesson
         </Button>
       </Container>
