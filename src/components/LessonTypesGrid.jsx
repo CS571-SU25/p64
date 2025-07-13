@@ -1,4 +1,4 @@
-import { lessonTypes } from "./BookLesson";
+import { lessonTypes } from "./bookLesson/BookLesson";
 import LessonCard from "./LessonCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -10,9 +10,8 @@ export default function LessonTypesGrid(props) {
       <Row>
         {lessonTypes.map((lesson) => {
           return (
-            <Col style={{ marginBottom: "1rem" }}>
+            <Col key={lesson.title} style={{ marginBottom: "1rem" }}>
               <LessonCard
-                key={lesson.title}
                 {...lesson}
                 showLongDescription={props.showLongDescription}
                 height={props.height}

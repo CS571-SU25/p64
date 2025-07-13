@@ -1,7 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { useNavigate } from "react-router";
 
 export default function LessonCard(props) {
+  let navigate = useNavigate();
+
   return (
     <Card
       style={{
@@ -25,7 +28,9 @@ export default function LessonCard(props) {
         )}
       </Card.Body>
       {props.id === 1 || props.id === 2 ? (
-        <Button variant="primary">Book Lesson</Button>
+        <Button variant="primary" onClick={() => navigate("/book-lesson")}>
+          Book Lesson
+        </Button>
       ) : (
         <div></div>
       )}

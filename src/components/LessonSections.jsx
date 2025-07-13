@@ -1,5 +1,5 @@
 import Stack from "react-bootstrap/Stack";
-import { lessonTypes } from "../BookLesson";
+import { lessonTypes } from "../bookLesson/BookLesson";
 import LessonCard from "../LessonCard";
 
 export default function LessonSections() {

@@ -2,7 +2,7 @@ import "./App.css";
 import { HashRouter, Routes, Route } from "react-router";
 import Home from "./components/homePage/Home";
 import CoachingOpportunities from "./components/CoachingOpportunities";
-import BookLesson from "./components/BookLesson";
+import BookLesson from "./components/bookLesson/BookLesson";
 import FavoriteProducts from "./components/FavoriteProducts";
 import AboutMe from "./components/AboutMe";
 import ContactMe from "./components/ContactMe";

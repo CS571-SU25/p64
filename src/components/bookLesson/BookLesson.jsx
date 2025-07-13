@@ -61,7 +61,10 @@ export default function BookLesson() {
 
   return (
     <div>
-      <Form.Group controlId="lesson-type">
+      <Form.Group
+        controlId="lesson-type"
+        style={{ width: "80%", margin: "2rem auto", textAlign: "left" }}
+      >
         <Form.Label>Lesson Type</Form.Label>
         <Form.Select onChange={(e) => handeLessonSelection(e.target.value)}>
           {lessonTypes.map((lesson) => {
