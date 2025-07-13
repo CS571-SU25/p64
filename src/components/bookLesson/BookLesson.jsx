@@ -2,6 +2,7 @@ import IndividualLessonForm from "./IndividualLessonForm";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import { useState } from "react";
+import { useLocation } from "react-router";
 
 export const lessonTypes = [
   {
@@ -48,12 +49,17 @@ export const lessonTypes = [
 ];
 
 export default function BookLesson() {
-  const [lesson, setLesson] = useState();
+  const [lesson, setLesson] = useState(useLocation().state);
+
+  //TODO: fix default selection
 
   function handeLessonSelection(value) {
-    console.log(value);
     setLesson(() => {
-      const lesson = lessonTypes.find((l) => l.id === parseInt(value));
+      const intValue = parseInt(value);
+      if (0 === intValue) {
+        return undefined;
+      }
+      const lesson = lessonTypes.find((l) => l.id === intValue);
 
       return lesson;
     });
@@ -66,20 +72,26 @@ export default function BookLesson() {
         style={{ width: "80%", margin: "2rem auto", textAlign: "left" }}
       >
         <Form.Label>Lesson Type</Form.Label>
-        <Form.Select onChange={(e) => handeLessonSelection(e.target.value)}>
-          {lessonTypes.map((lesson) => {
-            return (
-              <option key={lesson.id} value={lesson.id}>
-                {lesson.title}
-              </option>
-            );
-          })}
+        <Form.Select
+          value={lesson}
+          onChange={(e) => handeLessonSelection(e.target.value)}
+        >
+          <option value={0}>Select a lesson</option>
+          {lessonTypes
+            .filter((l) => l.id !== 4)
+            .map((lesson) => {
+              return (
+                <option key={lesson.id} value={lesson.id}>
+                  {lesson.title}
+                </option>
+              );
+            })}
         </Form.Select>
       </Form.Group>
 
       <Container>
         {!lesson ? (
-          <div></div>
+          <div style={{ height: "100vh" }}>Please select a lesson type!</div>
         ) : (
           <IndividualLessonForm key={lesson.id} {...lesson} />
         )}

@@ -29,29 +29,57 @@ export default function IndividualLessonForm(props) {
       >
         <div>
           <h2>Lesson Info</h2>
-          <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-            <Form.Label>Location</Form.Label>
-            <Form.Select required>
-              <option value="1">123 Some Address Drive</option>
-              <option value="2">123 Some Address Drive</option>
-              <option value="3">123 Some Address Drive</option>
-            </Form.Select>
-          </Form.Group>
-          <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-            <Form.Label>Participant 1</Form.Label>
-            <Form.Control required type="name" placeholder="Enter name" />
-          </Form.Group>
-          <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-            <Form.Label>Participant 2</Form.Label>
-            <Form.Control required type="name" placeholder="Enter name" />
-            <Form.Control.Feedback type="invalid">
-              You must have at least 2 participants for this lesson.
-            </Form.Control.Feedback>
-          </Form.Group>
-          <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-            <Form.Label>Participant 3</Form.Label>
-            <Form.Control type="name" placeholder="Enter name" />
-          </Form.Group>
+          {props.id === 3 ? (
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Default file input example</Form.Label>
+              <Form.Control required type="file" />
+            </Form.Group>
+          ) : (
+            <></>
+          )}
+          {props.id !== 3 ? (
+            <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
+              <Form.Label>Location</Form.Label>
+              <Form.Select required>
+                <option value="1">123 Some Address Drive</option>
+                <option value="2">123 Some Address Drive</option>
+                <option value="3">123 Some Address Drive</option>
+              </Form.Select>
+            </Form.Group>
+          ) : (
+            <></>
+          )}
+          {props.id === 1 ? (
+            <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
+              <Form.Label>Participant</Form.Label>
+              <Form.Control required type="name" placeholder="Enter name" />
+            </Form.Group>
+          ) : (
+            <></>
+          )}
+          {props.id === 2 ? (
+            <>
+              {" "}
+              <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
+                <Form.Label>Participant 1</Form.Label>
+                <Form.Control required type="name" placeholder="Enter name" />
+              </Form.Group>
+              <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
+                <Form.Label>Participant 2</Form.Label>
+                <Form.Control required type="name" placeholder="Enter name" />
+                <Form.Control.Feedback type="invalid">
+                  You must have at least 2 participants for this lesson.
+                </Form.Control.Feedback>
+              </Form.Group>
+              <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
+                <Form.Label>Participant 3</Form.Label>
+                <Form.Control type="name" placeholder="Enter name" />
+              </Form.Group>
+            </>
+          ) : (
+            <></>
+          )}
+
           <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
             <Form.Label>Additional Notes</Form.Label>
             <Form.Control

@@ -28,7 +28,10 @@ export default function LessonCard(props) {
         )}
       </Card.Body>
       {props.id === 1 || props.id === 2 ? (
-        <Button variant="primary" onClick={() => navigate("/book-lesson")}>
+        <Button
+          variant="primary"
+          onClick={() => navigate("/book-lesson", { state: props })}
+        >
           Book Lesson
         </Button>
       ) : (
