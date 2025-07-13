@@ -8,9 +8,8 @@ export default function LessonCategories(props) {
       <Stack direction="horizontal" className="mx-auto">
         {props.data.map((lesson) => {
           return (
-            <div style={{ margin: "1rem" }}>
+            <div style={{ margin: "1rem" }} key={lesson.title}>
               <LessonCard
-                key={lesson.title}
                 {...lesson}
                 showLongDescription={true}
                 height={"400px"}
