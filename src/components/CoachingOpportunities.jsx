@@ -6,7 +6,7 @@ export default function CoachingOpportunities() {
   const onlineLessons = lessonTypes.filter((lesson) => !lesson.inPerson);
 
   return (
-    <div style={{ paddingTop: "80px", width: "100%", margin: "auto" }}>
+    <div>
       <LessonCategories data={inPersonLessons} heading={"In-Person Lessons"} />
       <LessonCategories data={onlineLessons} heading={"Online Coaching"} />
     </div>
