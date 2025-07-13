@@ -1,24 +1,30 @@
-import Stack from "react-bootstrap/Stack";
 import LessonCard from "./LessonCard";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { Container } from "react-bootstrap";
 
 export default function LessonCategories(props) {
   return (
-    <Stack style={{ backgroundColor: "#e68649", margin: "2rem" }}>
-      <h2 style={{ padding: "1rem" }}>{props.heading}</h2>
-      <Stack direction="horizontal" className="mx-auto">
+    <Container style={{ backgroundColor: "#e68649", margin: "2rem auto" }}>
+      <Row>
+        <Col style={{ padding: "1rem" }}>
+          <h1>{props.heading}</h1>
+        </Col>
+      </Row>
+      <Row>
         {props.data.map((lesson) => {
           return (
-            <div style={{ margin: "1rem" }} key={lesson.title}>
+            <Col style={{ marginBottom: "1rem" }} sm={12} lg={6}>
               <LessonCard
                 {...lesson}
                 showLongDescription={true}
-                height={"400px"}
-                width={"500px"}
+                height={"100%"}
+                width={"80%"}
               />
-            </div>
+            </Col>
           );
         })}
-      </Stack>
-    </Stack>
+      </Row>
+    </Container>
   );
 }
