@@ -1,12 +1,18 @@
 import Form from "react-bootstrap/Form";
 
-export default function ContactInfoForm() {
+export default function ContactInfoForm(props) {
   return (
     <div style={{ marginTop: "1rem" }}>
       <h2>Your Contact Info</h2>
       <Form.Group style={{ margin: "1rem 0" }}>
         <Form.Label htmlFor="name">Name</Form.Label>
-        <Form.Control required id="name" type="name" placeholder="Enter name" />
+        <Form.Control
+          required
+          id="name"
+          type="name"
+          placeholder="Enter name"
+          ref={props.name}
+        />
         <Form.Control.Feedback type="invalid">Required</Form.Control.Feedback>
       </Form.Group>
       <Form.Group style={{ margin: "1rem 0" }}>
@@ -16,6 +22,7 @@ export default function ContactInfoForm() {
           id="email"
           type="email"
           placeholder="Enter email"
+          ref={props.email}
         />
         <Form.Control.Feedback type="invalid">
           Please enter a valid email
@@ -28,6 +35,7 @@ export default function ContactInfoForm() {
           id="phoneNumber"
           type="phone-number"
           placeholder="Enter phone number"
+          ref={props.phoneNumber}
         />
         <Form.Control.Feedback type="invalid">Required</Form.Control.Feedback>
       </Form.Group>
