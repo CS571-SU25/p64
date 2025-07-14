@@ -17,7 +17,7 @@ export default function TopNavBar() {
       <Container fluid>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Brand
-          href="/"
+          href="/#"
           style={{
             color: "#ffffff",
           }}
