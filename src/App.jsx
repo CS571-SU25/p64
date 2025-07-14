@@ -14,7 +14,7 @@ function App() {
     <HashRouter>
       <TopNavBar />
       <Routes>
-        <Route path="/" element={<Home />}></Route>
+        <Route path="/#" element={<Home />}></Route>
         <Route
           path="/coaching-opportunities"
           element={<CoachingOpportunities />}
