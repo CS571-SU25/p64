@@ -7,6 +7,7 @@ export default function ContactInfoForm() {
       <Form.Group style={{ margin: "1rem 0" }}>
         <Form.Label htmlFor="name">Name</Form.Label>
         <Form.Control required id="name" type="name" placeholder="Enter name" />
+        <Form.Control.Feedback type="invalid">Required</Form.Control.Feedback>
       </Form.Group>
       <Form.Group style={{ margin: "1rem 0" }}>
         <Form.Label htmlFor="email">Email address</Form.Label>
@@ -16,6 +17,9 @@ export default function ContactInfoForm() {
           type="email"
           placeholder="Enter email"
         />
+        <Form.Control.Feedback type="invalid">
+          Please enter a valid email
+        </Form.Control.Feedback>
       </Form.Group>
       <Form.Group style={{ margin: "1rem 0" }}>
         <Form.Label htmlFor="phoneNumber">Phone Number</Form.Label>
@@ -25,6 +29,7 @@ export default function ContactInfoForm() {
           type="phone-number"
           placeholder="Enter phone number"
         />
+        <Form.Control.Feedback type="invalid">Required</Form.Control.Feedback>
       </Form.Group>
     </div>
   );
