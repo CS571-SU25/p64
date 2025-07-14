@@ -21,12 +21,13 @@ export default function ContactMe() {
         }}
       >
         <h2>How Can I Help?</h2>
-        <Form.Group controlId="description">
-          <Form.Label column>Question</Form.Label>
+        <Form.Group>
+          <Form.Label htmlFor="question">Question</Form.Label>
           <Col>
             <Form.Control
+              id="question"
               as="textarea"
-              rows={3}
+              rows={5}
               placeholder="Please write your question here"
             />
           </Col>
