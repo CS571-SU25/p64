@@ -33,9 +33,24 @@ export default function ContactMe() {
       left: 0,
     });
 
-    setShowSuccessAlert(() => true);
-
-    setTimeout(() => setShowSuccessAlert(() => false), 5000);
+    fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/questions`, {
+      method: "POST",
+      headers: {
+        "X-CS571-ID": CS571.getBadgerId(),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        question: inputQuestion,
+        name: inputName,
+        email: inputEmail,
+        phoneNumber: inputPhoneNumber,
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        setShowSuccessAlert(() => true);
+        setTimeout(() => setShowSuccessAlert(() => false), 5000);
+      }
+    });
   };
 
   return (
