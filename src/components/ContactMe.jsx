@@ -50,7 +50,7 @@ export default function ContactMe() {
           onClose={() => setShowSuccessAlert(false)}
           dismissible
           className="ms-auto"
-          style={{ width: "50%" }}
+          style={{ width: "60%" }}
         >
           Question successfully submitted!
         </Alert>
