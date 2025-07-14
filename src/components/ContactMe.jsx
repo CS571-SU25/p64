@@ -7,7 +7,7 @@ import Alert from "react-bootstrap/Alert";
 
 export default function ContactMe() {
   const [validated, setValidated] = useState(false);
-  const [showSuccessAlert, setShowSuccessAlert] = useState(true);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
   const question = useRef();
   const name = useRef();
@@ -15,9 +15,9 @@ export default function ContactMe() {
   const phoneNumber = useRef();
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
       setValidated(true);
       return;
@@ -33,7 +33,9 @@ export default function ContactMe() {
       left: 0,
     });
 
-    setShowSuccessAlert(true);
+    setShowSuccessAlert(() => true);
+
+    setTimeout(() => setShowSuccessAlert(() => false), 5000);
   };
 
   return (
