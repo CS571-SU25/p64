@@ -3,9 +3,11 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import ContactInfoForm from "./bookLesson/ContactInfoForm";
 import { useRef } from "react";
+import Alert from "react-bootstrap/Alert";
 
 export default function ContactMe() {
   const [validated, setValidated] = useState(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(true);
 
   const question = useRef();
   const name = useRef();
@@ -25,6 +27,13 @@ export default function ContactMe() {
     const inputName = name.current.value;
     const inputEmail = email.current.value;
     const inputPhoneNumber = phoneNumber.current.value;
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
+
+    setShowSuccessAlert(true);
   };
 
   return (
@@ -33,6 +42,19 @@ export default function ContactMe() {
         margin: "2rem",
       }}
     >
+      {showSuccessAlert ? (
+        <Alert
+          variant="success"
+          onClose={() => setShowSuccessAlert(false)}
+          dismissible
+          className="ms-auto"
+          style={{ width: "50%" }}
+        >
+          Question successfully submitted!
+        </Alert>
+      ) : (
+        <></>
+      )}
       <h1>Contact Me</h1>
       <Form
         noValidate
