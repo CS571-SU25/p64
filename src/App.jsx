@@ -4,7 +4,7 @@ import Home from "./components/homePage/Home";
 import CoachingOpportunities from "./components/CoachingOpportunities";
 import BookLesson from "./components/bookLesson/BookLesson";
 import FavoriteProducts from "./components/FavoriteProducts";
-import AboutMe from "./components/AboutMe";
+import AboutMe from "./components/About/AboutMe";
 import ContactMe from "./components/ContactMe";
 import TopNavBar from "./components/pageGlobals/TopNavBar";
 import BottomPane from "./components/pageGlobals/BottomPane";
