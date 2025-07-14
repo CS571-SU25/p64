@@ -49,6 +49,11 @@ export default function ContactMe() {
       if (res.status === 200) {
         setShowSuccessAlert(() => true);
         setTimeout(() => setShowSuccessAlert(() => false), 5000);
+        setValidated(false);
+        question.current.value = "";
+        name.current.value = "";
+        email.current.value = "";
+        phoneNumber.current.value = "";
       }
     });
   };
@@ -99,7 +104,7 @@ export default function ContactMe() {
           <Form.Control.Feedback type="invalid">Required</Form.Control.Feedback>
         </Form.Group>
         <ContactInfoForm name={name} email={email} phoneNumber={phoneNumber} />
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onSubmit={handleSubmit}>
           Submit
         </Button>
       </Form>
