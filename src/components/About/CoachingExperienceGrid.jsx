@@ -7,30 +7,45 @@ import ListGroup from "react-bootstrap/ListGroup";
 const coachingExperience = [
   {
     id: 1,
-    startDate: "2025",
-    endDate: "Current",
-    location: "Lake Geneva",
-    instructionType: "Tennis and Pickleball",
-    title: "Instructor",
-    tasks: ["this is a task", "this is a task", "this is a task"],
+    startDate: "Current",
+    endDate: "",
+    location: "Lake Geneva Tennis & Pickleball",
+    title: "Tennis & Pickleball Instructor",
+    tasks: ["Conducts individual and group lessons", "Runs drill groups"],
   },
   {
     id: 2,
-    startDate: "2020",
-    endDate: "2021",
-    location: "Eau Claire",
-    instructionType: "Tennis",
+    startDate: "2024",
+    endDate: "",
+    location: "John & Fay Menard YMCA Tennis Center",
     title: "Tennis Instructor",
-    tasks: ["this is a task", "this is a task", "this is a task"],
+    tasks: [
+      "Developed players’ skills in practice",
+      "Coached various strategies during matchplay",
+    ],
   },
   {
     id: 3,
-    startDate: "2018",
-    endDate: "2020",
+    startDate: "2021 Boy’s Tennis Season",
+    endDate: "",
     location: "Green Bay",
-    instructionType: "Tennis",
+    title: "Director of Player Development",
+    tasks: [
+      "Developed players’ skills in practice",
+      "Coached various strategies during matchplay",
+    ],
+  },
+  {
+    id: 4,
+    startDate: "2021",
+    endDate: "2022",
+    location: "Green Bay Tennis Center",
     title: "Junior Tennis Instructor",
-    tasks: ["this is a task", "this is a task", "this is a task"],
+    tasks: [
+      "Taught from ages 6-70",
+      "Assisted in group lessons",
+      "Taught Private Lessons",
+    ],
   },
 ];
 
@@ -41,11 +56,12 @@ export default function CoachingExperienceGrid() {
       <Row>
         {coachingExperience.map((experience) => {
           return (
-            <Col key={experience.id} sm={12} md={12} lg={4}>
+            <Col key={experience.id} sm={12} md={12} lg={6}>
               <Card
                 style={{
                   textAlign: "center",
                   margin: "1rem auto",
+                  height: "280px",
                 }}
               >
                 <Card.Title>{experience.title}</Card.Title>
@@ -53,7 +69,8 @@ export default function CoachingExperienceGrid() {
                   {experience.location}
                 </Card.Subtitle>
                 <Card.Text>
-                  {experience.startDate} - {experience.endDate}
+                  {experience.startDate}
+                  {experience.endDate ? <> - {experience.endDate}</> : <></>}
                 </Card.Text>
                 <ListGroup className="list-group-flush">
                   {experience.tasks.map((task) => {
