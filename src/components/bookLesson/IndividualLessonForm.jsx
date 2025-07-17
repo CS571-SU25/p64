@@ -7,8 +7,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 export default function IndividualLessonForm(props) {
-  const [validated, setValidated] = useState(false);
-  const [value, setValue] = useState(null);
+  const [formValidated, setFormValidated] = useState(false);
+  const [dateValue, setDateValue] = useState(null);
+  const [dateError, setDateError] = useState(false);
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -16,8 +17,11 @@ export default function IndividualLessonForm(props) {
       event.preventDefault();
       event.stopPropagation();
     }
+    if (!dateValue) {
+      setDateError(true);
+    }
 
-    setValidated(true);
+    setFormValidated(true);
   };
 
   return (
@@ -26,37 +30,48 @@ export default function IndividualLessonForm(props) {
       <h2> {props.price}</h2>
       <div>{props.description}</div>
       <Form
-        style={{ width: "80%", margin: "2rem auto", textAlign: "left" }}
+        style={{ width: "60%", margin: "2rem auto", textAlign: "left" }}
         noValidate
-        validated={validated}
+        validated={formValidated}
         onSubmit={handleSubmit}
       >
         <div>
           <h2>Lesson Info</h2>
           {props.id === 3 ? (
-            <Form.Group controlId="formFile" className="mb-3">
-              <Form.Label>Default file input example</Form.Label>
-              <Form.Control required type="file" />
+            <Form.Group className="mb-3">
+              <Form.Label htmlFor="video-file-input">
+                Default file input example
+              </Form.Label>
+              <Form.Control id="video-file-input" required type="file" />
             </Form.Group>
           ) : (
             <></>
           )}
           {props.id !== 3 ? (
             <>
-              <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-                <Form.Label>Location</Form.Label>
-                <Form.Select required>
-                  <option value="1">123 Some Address Drive</option>
-                  <option value="2">123 Some Address Drive</option>
-                  <option value="3">123 Some Address Drive</option>
+              <Form.Group style={{ margin: "1rem 0" }}>
+                <Form.Label htmlFor="location">Location</Form.Label>
+                <Form.Select id="location" required>
+                  <option value="1">Garner Park- 333 S Rosa Rd</option>
+                  <option value="2">
+                    Pickleball Pro Courts- 2907 N Sherman Ave
+                  </option>
                 </Form.Select>
               </Form.Group>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DateTimePicker
+                  required
                   disablePast
                   label="Select lesson date"
-                  value={value}
-                  onChange={(newValue) => setValue(newValue)}
+                  value={dateValue}
+                  onChange={(newDate) => setDateValue(newDate)}
+                  slotProps={{
+                    textField: {
+                      required: true,
+                      error: dateError,
+                      helperText: dateError ? "This field is required" : "",
+                    },
+                  }}
                 />
               </LocalizationProvider>
             </>
@@ -64,9 +79,14 @@ export default function IndividualLessonForm(props) {
             <></>
           )}
           {props.id === 1 ? (
-            <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-              <Form.Label>Participant</Form.Label>
-              <Form.Control required type="name" placeholder="Enter name" />
+            <Form.Group style={{ margin: "1rem 0" }}>
+              <Form.Label htmlFor="Participant">Participant</Form.Label>
+              <Form.Control
+                id="Participant"
+                required
+                type="name"
+                placeholder="Enter name"
+              />
             </Form.Group>
           ) : (
             <></>
@@ -74,30 +94,45 @@ export default function IndividualLessonForm(props) {
           {props.id === 2 ? (
             <>
               {" "}
-              <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-                <Form.Label>Participant 1</Form.Label>
-                <Form.Control required type="name" placeholder="Enter name" />
+              <Form.Group style={{ margin: "1rem 0" }}>
+                <Form.Label htmlFor="Participant 1">Participant 1</Form.Label>
+                <Form.Control
+                  id="Participant 1"
+                  required
+                  type="name"
+                  placeholder="Enter name"
+                />
               </Form.Group>
-              <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-                <Form.Label>Participant 2</Form.Label>
-                <Form.Control required type="name" placeholder="Enter name" />
+              <Form.Group style={{ margin: "1rem 0" }}>
+                <Form.Label htmlFor="Participant 2">Participant 2</Form.Label>
+                <Form.Control
+                  id="Participant 2"
+                  required
+                  type="name"
+                  placeholder="Enter name"
+                />
                 <Form.Control.Feedback type="invalid">
                   You must have at least 2 participants for this lesson.
                 </Form.Control.Feedback>
               </Form.Group>
-              <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-                <Form.Label>Participant 3</Form.Label>
-                <Form.Control type="name" placeholder="Enter name" />
+              <Form.Group style={{ margin: "1rem 0" }}>
+                <Form.Label htmlFor="Participant 3">Participant 3</Form.Label>
+                <Form.Control
+                  id="Participant 3"
+                  type="name"
+                  placeholder="Enter name"
+                />
               </Form.Group>
             </>
           ) : (
             <></>
           )}
-
-          <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-            <Form.Label>Additional Notes</Form.Label>
+          <Form.Group style={{ margin: "1rem 0" }}>
+            <Form.Label htmlFor="additional-notes">Additional Notes</Form.Label>
             <Form.Control
-              type="name"
+              rows={5}
+              id="additional-notes"
+              as="textarea"
               placeholder="Enter some notes about this lesson"
             />
           </Form.Group>
