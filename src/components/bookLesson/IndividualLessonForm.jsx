@@ -2,9 +2,13 @@ import Form from "react-bootstrap/Form";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import ContactInfoForm from "./ContactInfoForm";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 export default function IndividualLessonForm(props) {
   const [validated, setValidated] = useState(false);
+  const [value, setValue] = useState(null);
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -38,14 +42,24 @@ export default function IndividualLessonForm(props) {
             <></>
           )}
           {props.id !== 3 ? (
-            <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
-              <Form.Label>Location</Form.Label>
-              <Form.Select required>
-                <option value="1">123 Some Address Drive</option>
-                <option value="2">123 Some Address Drive</option>
-                <option value="3">123 Some Address Drive</option>
-              </Form.Select>
-            </Form.Group>
+            <>
+              <Form.Group controlId="name" style={{ margin: "1rem 0" }}>
+                <Form.Label>Location</Form.Label>
+                <Form.Select required>
+                  <option value="1">123 Some Address Drive</option>
+                  <option value="2">123 Some Address Drive</option>
+                  <option value="3">123 Some Address Drive</option>
+                </Form.Select>
+              </Form.Group>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateTimePicker
+                  disablePast
+                  label="Select lesson date"
+                  value={value}
+                  onChange={(newValue) => setValue(newValue)}
+                />
+              </LocalizationProvider>
+            </>
           ) : (
             <></>
           )}
