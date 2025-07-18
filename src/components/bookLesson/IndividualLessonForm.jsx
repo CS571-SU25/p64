@@ -60,7 +60,7 @@ export default function IndividualLessonForm(props) {
       }),
     }).then((res) => {
       if (res.status === 200) {
-        console.log("this was success");
+        setFormValidated(false);
         location.current.value = "";
         dateTime.current.value = "";
         participant.current.value = "";
@@ -129,10 +129,9 @@ export default function IndividualLessonForm(props) {
           )}
           {props.id === 1 ? (
             <Form.Group style={{ margin: "1rem 0" }}>
-              <Form.Label ref={participant} htmlFor="Participant">
-                Participant
-              </Form.Label>
+              <Form.Label htmlFor="Participant">Participant</Form.Label>
               <Form.Control
+                ref={participant}
                 id="Participant"
                 required
                 type="name"
@@ -179,10 +178,9 @@ export default function IndividualLessonForm(props) {
             <></>
           )}
           <Form.Group style={{ margin: "1rem 0" }}>
-            <Form.Label ref={additionalNotes} htmlFor="additional-notes">
-              Additional Notes
-            </Form.Label>
+            <Form.Label htmlFor="additional-notes">Additional Notes</Form.Label>
             <Form.Control
+              ref={additionalNotes}
               rows={5}
               id="additional-notes"
               as="textarea"
