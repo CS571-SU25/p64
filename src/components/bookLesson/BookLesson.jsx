@@ -38,11 +38,11 @@ export default function BookLesson() {
         message={"Lesson was successfully booked!"}
       />
       <Form.Group
-        controlId="lesson-type"
         style={{ width: "80%", margin: "2rem auto", textAlign: "left" }}
       >
-        <Form.Label>Lesson Type</Form.Label>
+        <Form.Label htmlFor="lessonType">Lesson Type</Form.Label>
         <Form.Select
+          id="lessonType"
           value={lesson}
           onChange={(e) => handeLessonSelection(e.target.value)}
         >
