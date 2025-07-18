@@ -4,11 +4,18 @@ import ContactInfoForm from "./ContactInfoForm";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { useRef } from "react";
 
 export default function IndividualLessonForm(props) {
   const [formValidated, setFormValidated] = useState(false);
   const [dateValue, setDateValue] = useState(null);
   const [dateError, setDateError] = useState(false);
+
+  const participant = useRef();
+  const additionalNotes = useRef();
+  const name = useRef();
+  const email = useRef();
+  const phoneNumber = useRef();
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -21,6 +28,41 @@ export default function IndividualLessonForm(props) {
     }
 
     setFormValidated(true);
+
+    if (!dateValue || form.checkValidity() === false) {
+      return;
+    }
+
+    const inputParticipant = participant.current.value;
+    const inputAdditionalNotes = additionalNotes.current.value;
+    const inputName = name.current.value;
+    const inputEmail = email.current.value;
+    const inputPhoneNumber = phoneNumber.current.value;
+
+    fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
+      method: "POST",
+      headers: {
+        "X-CS571-ID": CS571.getBadgerId(),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        participant: inputParticipant,
+        additionalNotes: inputAdditionalNotes,
+        name: inputName,
+        email: inputEmail,
+        phoneNumber: inputPhoneNumber,
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        console.log("this was success");
+        setFormValidated(false);
+        participant.current.value = "";
+        additionalNotes.current.value = "";
+        name.current.value = "";
+        email.current.value = "";
+        phoneNumber.current.value = "";
+      }
+    });
   };
 
   return (
@@ -79,7 +121,9 @@ export default function IndividualLessonForm(props) {
           )}
           {props.id === 1 ? (
             <Form.Group style={{ margin: "1rem 0" }}>
-              <Form.Label htmlFor="Participant">Participant</Form.Label>
+              <Form.Label ref={participant} htmlFor="Participant">
+                Participant
+              </Form.Label>
               <Form.Control
                 id="Participant"
                 required
@@ -127,7 +171,9 @@ export default function IndividualLessonForm(props) {
             <></>
           )}
           <Form.Group style={{ margin: "1rem 0" }}>
-            <Form.Label htmlFor="additional-notes">Additional Notes</Form.Label>
+            <Form.Label ref={additionalNotes} htmlFor="additional-notes">
+              Additional Notes
+            </Form.Label>
             <Form.Control
               rows={5}
               id="additional-notes"
@@ -137,7 +183,11 @@ export default function IndividualLessonForm(props) {
           </Form.Group>
         </div>
         <div>
-          <ContactInfoForm />
+          <ContactInfoForm
+            name={name}
+            email={email}
+            phoneNumber={phoneNumber}
+          />
           <Button variant="primary" type="submit">
             Submit
           </Button>
