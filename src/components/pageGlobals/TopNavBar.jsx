@@ -56,7 +56,7 @@ export default function TopNavBar() {
                 color: "#ffffff",
               }}
             >
-              Contact Me
+              Contact
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
