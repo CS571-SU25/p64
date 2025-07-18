@@ -13,7 +13,12 @@ export default function ExperienceCard(props) {
       {props.src ? (
         <Card.Img
           variant="top"
-          style={{ height: "300px", width: "300px", margin: "auto" }}
+          style={{
+            height: "300px",
+            width: "200px",
+            margin: "auto",
+            marginBottom: "1rem",
+          }}
           src={props.src}
           alt={props.alt}
         />
@@ -24,10 +29,14 @@ export default function ExperienceCard(props) {
       <Card.Subtitle className="mb-2 text-muted">
         {props.subheading}
       </Card.Subtitle>
-      <Card.Text>
-        {props.startDate}
-        {props.endDate ? <> - {props.endDate}</> : <></>}
-      </Card.Text>
+      {props.startDate ? (
+        <Card.Text>
+          {props.startDate}
+          {props.endDate ? <> - {props.endDate}</> : <></>}
+        </Card.Text>
+      ) : (
+        <></>
+      )}
       <ListGroup className="list-group-flush">
         {props.tasks.map((task) => {
           return <ListGroup.Item>{task}</ListGroup.Item>;

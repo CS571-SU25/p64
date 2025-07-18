@@ -7,7 +7,6 @@ export const schoolExperiences = [
     details: [
       "First Team All Conference #1 Doubles Selection",
       "Second Place Sectional Finish at #1 Doubles",
-      "Second Round Appearance in the WIAA Division 1 Doubles State Tournament",
     ],
     src: "./colin-ashwaubenon.jpg",
   },
@@ -25,7 +24,7 @@ export const schoolExperiences = [
     id: 3,
     startDate: "2021",
     endDate: "2023",
-    location: "UW- Eau Claire",
+    location: "Uinversity of Wisconsin-Eau Claire",
     details: [
       "Three years of collegiate tennis experience playing singles and doubles",
     ],
