@@ -9,6 +9,7 @@ export const schoolExperiences = [
       "Second Place Sectional Finish at #1 Doubles",
     ],
     src: "./colin-ashwaubenon.jpg",
+    alt: "Colin and his Ashwaubenon Doubles Partner",
   },
   {
     id: 2,
@@ -18,7 +19,8 @@ export const schoolExperiences = [
     details: [
       "#16 Ranked Doubles Team at the WIAA Division 1 Doubles State Tournament",
     ],
-    src: "./uwec-tennis.jpeg",
+    src: "./south-west.jpg",
+    alt: "Colin on the Court",
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ export const schoolExperiences = [
     details: [
       "Three years of collegiate tennis experience playing singles and doubles",
     ],
-    src: "./uwec-tennis.jpeg",
+    src: "./EC-tennis.jpg",
+    alt: "Colin hitting a tennis ball at Eau Claire",
   },
 ];

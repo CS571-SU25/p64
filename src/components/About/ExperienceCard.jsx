@@ -14,8 +14,8 @@ export default function ExperienceCard(props) {
         <Card.Img
           variant="top"
           style={{
-            height: "300px",
             width: "200px",
+            height: "200px",
             margin: "auto",
             marginBottom: "1rem",
           }}
