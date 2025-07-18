@@ -1,8 +1,4 @@
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
-import ListGroup from "react-bootstrap/ListGroup";
+import { Container, Row, Col, Card, ListGroup } from "react-bootstrap";
 
 const coachingExperience = [
   {
@@ -30,10 +26,7 @@ const coachingExperience = [
     endDate: "",
     location: "Green Bay",
     title: "Director of Player Development",
-    tasks: [
-      "Developed players’ skills in practice",
-      "Coached various strategies during matchplay",
-    ],
+    tasks: ["Assisted organizing practices", "Coached player's during matches"],
   },
   {
     id: 4,
