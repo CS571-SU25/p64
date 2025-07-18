@@ -1,13 +1,19 @@
 import IndividualLessonForm from "./IndividualLessonForm";
-import { Container, Form } from "react-bootstrap";
+import { Container, Form, Alert } from "react-bootstrap";
 import { useState } from "react";
-import { useLocation } from "react-router";
 import { lessonTypes } from "../../consts/lessonTypes";
 
 export default function BookLesson() {
   const [lesson, setLesson] = useState(null);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
-  function handeLessonSelection(value) {
+  const onFormSubmitSuccesss = () => {
+    setLesson(null);
+    setShowSuccessAlert(() => true);
+    setTimeout(() => setShowSuccessAlert(() => false), 5000);
+  };
+
+  const handeLessonSelection = (value) => {
     setLesson(() => {
       const intValue = parseInt(value);
       if (0 === intValue) {
@@ -17,10 +23,23 @@ export default function BookLesson() {
 
       return lesson;
     });
-  }
+  };
 
   return (
     <div>
+      {showSuccessAlert ? (
+        <Alert
+          variant="success"
+          onClose={() => setShowSuccessAlert(false)}
+          dismissible
+          className="ms-auto"
+          style={{ width: "60%", margin: "1rem" }}
+        >
+          Lesson successfully booked!
+        </Alert>
+      ) : (
+        <></>
+      )}
       <Form.Group
         controlId="lesson-type"
         style={{ width: "80%", margin: "2rem auto", textAlign: "left" }}
@@ -49,7 +68,7 @@ export default function BookLesson() {
         ) : (
           <IndividualLessonForm
             key={lesson.id}
-            setLesson={() => setLesson(null)}
+            onFormSubmitSuccess={onFormSubmitSuccesss}
             {...lesson}
           />
         )}
