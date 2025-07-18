@@ -42,7 +42,7 @@ export default function TopNavBar() {
               Favorite Products
             </Nav.Link>
             <Nav.Link
-              href="#about-me"
+              href="#about"
               style={{
                 color: "#ffffff",
               }}
@@ -50,7 +50,7 @@ export default function TopNavBar() {
               About Me
             </Nav.Link>
             <Nav.Link
-              href="#contact-me"
+              href="#contact"
               style={{
                 color: "#ffffff",
               }}
