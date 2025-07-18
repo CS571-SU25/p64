@@ -1,5 +1,6 @@
-import { Container, Row, Col, Card, ListGroup } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import { coachingExperience } from "../../consts/coachingExperience";
+import ExperienceCard from "./ExperienceCard";
 
 export default function CoachingExperienceGrid() {
   return (
@@ -9,27 +10,14 @@ export default function CoachingExperienceGrid() {
         {coachingExperience.map((experience) => {
           return (
             <Col key={experience.id} sm={12} md={12} lg={6}>
-              <Card
-                style={{
-                  textAlign: "center",
-                  margin: "1rem auto",
-                  height: "280px",
-                }}
-              >
-                <Card.Title>{experience.title}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  {experience.location}
-                </Card.Subtitle>
-                <Card.Text>
-                  {experience.startDate}
-                  {experience.endDate ? <> - {experience.endDate}</> : <></>}
-                </Card.Text>
-                <ListGroup className="list-group-flush">
-                  {experience.tasks.map((task) => {
-                    return <ListGroup.Item>{task}</ListGroup.Item>;
-                  })}
-                </ListGroup>
-              </Card>
+              <ExperienceCard
+                heading={experience.title}
+                height={"250px"}
+                subtitle={experience.location}
+                startDate={experience.startDate}
+                endDate={experience.endDate}
+                tasks={experience.tasks}
+              />
             </Col>
           );
         })}

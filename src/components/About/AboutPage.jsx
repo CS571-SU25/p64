@@ -8,7 +8,9 @@ export default function AboutPage() {
     <div>
       <AboutColin />
       <CoachingExperienceGrid />
+      <hr />
       <GettingIntoPickleball />
+      <hr />
       <TennisBackground />
     </div>
   );
