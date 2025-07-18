@@ -5,9 +5,7 @@ import { useLocation } from "react-router";
 import { lessonTypes } from "../../consts/lessonTypes";
 
 export default function BookLesson() {
-  const [lesson, setLesson] = useState(useLocation().state);
-
-  //TODO: fix default selection
+  const [lesson, setLesson] = useState(null);
 
   function handeLessonSelection(value) {
     setLesson(() => {
@@ -49,7 +47,11 @@ export default function BookLesson() {
         {!lesson ? (
           <div style={{ height: "100vh" }}>Please select a lesson type!</div>
         ) : (
-          <IndividualLessonForm key={lesson.id} {...lesson} />
+          <IndividualLessonForm
+            key={lesson.id}
+            setLesson={() => setLesson(null)}
+            {...lesson}
+          />
         )}
       </Container>
     </div>

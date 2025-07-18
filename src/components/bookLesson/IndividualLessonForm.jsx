@@ -31,7 +31,7 @@ export default function IndividualLessonForm(props) {
 
     setFormValidated(true);
 
-    if (!dateValue || form.checkValidity() === false) {
+    if (form.checkValidity() === false) {
       return;
     }
 
@@ -70,6 +70,8 @@ export default function IndividualLessonForm(props) {
         phoneNumber.current.value = "";
       }
     });
+
+    props.setLesson();
   };
 
   return (
@@ -111,14 +113,12 @@ export default function IndividualLessonForm(props) {
                   required
                   disablePast
                   label="Select lesson date"
-                  value={dateValue}
-                  onChange={(newDate) => setDateValue(newDate)}
                   slotProps={{
                     textField: {
                       inputRef: dateTime,
-                      required: true,
-                      error: dateError,
-                      helperText: dateError ? "This field is required" : "",
+                      // required: true,
+                      // error: dateError,
+                      // helperText: dateError ? "This field is required" : "",
                     },
                   }}
                 />
