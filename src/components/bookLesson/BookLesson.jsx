@@ -5,16 +5,16 @@ import { lessonTypes } from "../../consts/lessonTypes";
 import AlertMessage from "../pageGlobals/AlertMessage";
 
 export default function BookLesson() {
-  const [lesson, setLesson] = useState(null);
+  const [lesson, setLesson] = useState({ id: 0 });
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
   const onFormSubmitSuccesss = () => {
-    setLesson(null);
     window.scrollTo({
       top: 0,
       left: 0,
     });
     setShowSuccessAlert(() => true);
+    setLesson({ id: 0 });
     setTimeout(() => setShowSuccessAlert(() => false), 5000);
   };
 
@@ -22,7 +22,7 @@ export default function BookLesson() {
     const intValue = Number(e.target.value);
 
     if (0 === intValue) {
-      setLesson(null);
+      setLesson({ id: 0 });
     }
     const lesson = lessonTypes.find((l) => l.id === intValue);
 
@@ -58,7 +58,7 @@ export default function BookLesson() {
         </Form.Select>
       </Form.Group>
       <Container>
-        {!lesson ? (
+        {lesson.id === 0 ? (
           <div style={{ height: "80vh" }}>Please select a lesson type!</div>
         ) : (
           <IndividualLessonForm
