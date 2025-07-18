@@ -19,6 +19,15 @@ export default function IndividualLessonForm(props) {
   const email = useRef();
   const phoneNumber = useRef();
 
+  const updateDateValue = (e) => {
+    setDateValue(e);
+    if (!dateValue) {
+      setDateError(true);
+    } else {
+      setDateError(false);
+    }
+  };
+
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -36,7 +45,6 @@ export default function IndividualLessonForm(props) {
     }
 
     const inputLocation = location.current.value;
-    const inputDate = dateTime.current.value;
     const inputParticipant = participant.current.value;
     const inputAdditionalNotes = additionalNotes.current.value;
     const inputName = name.current.value;
@@ -51,7 +59,7 @@ export default function IndividualLessonForm(props) {
       },
       body: JSON.stringify({
         location: inputLocation,
-        date: inputDate,
+        date: dateValue,
         participants: [inputParticipant],
         notes: inputAdditionalNotes,
         name: inputName,
@@ -62,12 +70,12 @@ export default function IndividualLessonForm(props) {
       if (res.status === 200) {
         setFormValidated(false);
         location.current.value = "";
-        dateTime.current.value = "";
         participant.current.value = "";
         additionalNotes.current.value = "";
         name.current.value = "";
         email.current.value = "";
         phoneNumber.current.value = "";
+        setDateValue(null);
         props.onFormSubmitSuccess();
       }
     });
@@ -112,12 +120,13 @@ export default function IndividualLessonForm(props) {
                   required
                   disablePast
                   label="Select lesson date"
+                  value={dateValue}
+                  onChange={updateDateValue}
                   slotProps={{
                     textField: {
-                      inputRef: dateTime,
-                      // required: true,
-                      // error: dateError,
-                      // helperText: dateError ? "This field is required" : "",
+                      required: true,
+                      error: dateError,
+                      helperText: dateError ? "This field is required" : "",
                     },
                   }}
                 />
