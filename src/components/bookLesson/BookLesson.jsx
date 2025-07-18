@@ -18,16 +18,15 @@ export default function BookLesson() {
     setTimeout(() => setShowSuccessAlert(() => false), 5000);
   };
 
-  const handeLessonSelection = (value) => {
-    setLesson(() => {
-      const intValue = parseInt(value);
-      if (0 === intValue) {
-        return undefined;
-      }
-      const lesson = lessonTypes.find((l) => l.id === intValue);
+  const handeLessonSelection = (e) => {
+    const intValue = Number(e.target.value);
 
-      return lesson;
-    });
+    if (0 === intValue) {
+      setLesson(null);
+    }
+    const lesson = lessonTypes.find((l) => l.id === intValue);
+
+    setLesson(lesson);
   };
 
   return (
@@ -38,13 +37,13 @@ export default function BookLesson() {
         message={"Lesson was successfully booked!"}
       />
       <Form.Group
-        style={{ width: "80%", margin: "2rem auto", textAlign: "left" }}
+        style={{ width: "60%", margin: "2rem auto", textAlign: "left" }}
       >
         <Form.Label htmlFor="lessonType">Lesson Type</Form.Label>
         <Form.Select
           id="lessonType"
-          value={lesson}
-          onChange={(e) => handeLessonSelection(e.target.value)}
+          value={lesson?.id}
+          onChange={handeLessonSelection}
         >
           <option value={0}>Select a lesson</option>
           {lessonTypes
@@ -58,10 +57,9 @@ export default function BookLesson() {
             })}
         </Form.Select>
       </Form.Group>
-
       <Container>
         {!lesson ? (
-          <div style={{ height: "100vh" }}>Please select a lesson type!</div>
+          <div style={{ height: "80vh" }}>Please select a lesson type!</div>
         ) : (
           <IndividualLessonForm
             key={lesson.id}
