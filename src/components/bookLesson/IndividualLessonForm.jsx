@@ -11,6 +11,8 @@ export default function IndividualLessonForm(props) {
   const [dateValue, setDateValue] = useState(null);
   const [dateError, setDateError] = useState(false);
 
+  const location = useRef();
+  const dateTime = useRef();
   const participant = useRef();
   const additionalNotes = useRef();
   const name = useRef();
@@ -33,6 +35,8 @@ export default function IndividualLessonForm(props) {
       return;
     }
 
+    const inputLocation = location.current.value;
+    const inputDate = dateTime.current.value;
     const inputParticipant = participant.current.value;
     const inputAdditionalNotes = additionalNotes.current.value;
     const inputName = name.current.value;
@@ -46,8 +50,10 @@ export default function IndividualLessonForm(props) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        participant: inputParticipant,
-        additionalNotes: inputAdditionalNotes,
+        location: inputLocation,
+        date: inputDate,
+        participants: [inputParticipant],
+        notes: inputAdditionalNotes,
         name: inputName,
         email: inputEmail,
         phoneNumber: inputPhoneNumber,
@@ -55,7 +61,8 @@ export default function IndividualLessonForm(props) {
     }).then((res) => {
       if (res.status === 200) {
         console.log("this was success");
-        setFormValidated(false);
+        location.current.value = "";
+        dateTime.current.value = "";
         participant.current.value = "";
         additionalNotes.current.value = "";
         name.current.value = "";
@@ -92,7 +99,7 @@ export default function IndividualLessonForm(props) {
             <>
               <Form.Group style={{ margin: "1rem 0" }}>
                 <Form.Label htmlFor="location">Location</Form.Label>
-                <Form.Select id="location" required>
+                <Form.Select id="location" required ref={location}>
                   <option value="1">Garner Park- 333 S Rosa Rd</option>
                   <option value="2">
                     Pickleball Pro Courts- 2907 N Sherman Ave
@@ -108,6 +115,7 @@ export default function IndividualLessonForm(props) {
                   onChange={(newDate) => setDateValue(newDate)}
                   slotProps={{
                     textField: {
+                      inputRef: dateTime,
                       required: true,
                       error: dateError,
                       helperText: dateError ? "This field is required" : "",
