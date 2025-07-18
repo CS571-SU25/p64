@@ -1,5 +1,4 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
+import { Container, Nav, Navbar, Button } from "react-bootstrap";
 
 export default function TopNavBar() {
   return (

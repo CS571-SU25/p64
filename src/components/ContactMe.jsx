@@ -1,9 +1,7 @@
-import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
 import ContactInfoForm from "./bookLesson/ContactInfoForm";
 import { useRef } from "react";
-import Alert from "react-bootstrap/Alert";
+import { Alert, Button, Form } from "react-bootstrap";
 
 export default function ContactMe() {
   const [validated, setValidated] = useState(false);

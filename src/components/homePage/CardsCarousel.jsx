@@ -1,10 +1,6 @@
-import Carousel from "react-bootstrap/Carousel";
-import LessonCard from "../LessonCard";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import { useState } from "react";
 import FavoriteProductCard from "../favoriteProducts/FavoriteProductCard";
+import { Carousel, Container, Row, Col } from "react-bootstrap";
 
 export default function CoachingCardsCarousel(props) {
   const [carouselIndex, setCarouselIndex] = useState(0);

@@ -1,6 +1,5 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import { useNavigate } from "react-router";
+import { Button, Card } from "react-bootstrap";
 
 export default function LessonCard(props) {
   let navigate = useNavigate();

@@ -1,7 +1,4 @@
-import LessonCard from "./LessonCard";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Container } from "react-bootstrap";
+import { Container, Col, Row, LessonCard } from "react-bootstrap";
 
 export default function LessonCategories(props) {
   return (

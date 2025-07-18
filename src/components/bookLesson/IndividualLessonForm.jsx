@@ -1,6 +1,5 @@
-import Form from "react-bootstrap/Form";
 import { useState } from "react";
-import Button from "react-bootstrap/Button";
+import { Form, Button } from "react-bootstrap";
 import ContactInfoForm from "./ContactInfoForm";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
