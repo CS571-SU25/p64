@@ -9,6 +9,10 @@ export default function BookLesson() {
 
   const onFormSubmitSuccesss = () => {
     setLesson(null);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+    });
     setShowSuccessAlert(() => true);
     setTimeout(() => setShowSuccessAlert(() => false), 5000);
   };
