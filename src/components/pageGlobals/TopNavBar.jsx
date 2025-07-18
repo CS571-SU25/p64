@@ -47,7 +47,7 @@ export default function TopNavBar() {
                 color: "#ffffff",
               }}
             >
-              About Me
+              About
             </Nav.Link>
             <Nav.Link
               href="#contact"
