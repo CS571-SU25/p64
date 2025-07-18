@@ -5,6 +5,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useRef } from "react";
+import ParticipantsFormGroup from "../bookLesson/ParticipantsFormGroup";
 
 export default function IndividualLessonForm(props) {
   const [formValidated, setFormValidated] = useState(false);
@@ -12,12 +13,15 @@ export default function IndividualLessonForm(props) {
   const [dateError, setDateError] = useState(false);
 
   const location = useRef();
-  const dateTime = useRef();
   const participant = useRef();
   const additionalNotes = useRef();
   const name = useRef();
   const email = useRef();
   const phoneNumber = useRef();
+
+  const participant1 = useRef();
+  const participant2 = useRef();
+  const participant3 = useRef();
 
   const updateDateValue = (e) => {
     setDateValue(e);
@@ -40,16 +44,28 @@ export default function IndividualLessonForm(props) {
 
     setFormValidated(true);
 
-    if (form.checkValidity() === false) {
+    if (form.checkValidity() === false || !dateValue) {
       return;
     }
 
     const inputLocation = location.current.value;
-    const inputParticipant = participant.current.value;
     const inputAdditionalNotes = additionalNotes.current.value;
     const inputName = name.current.value;
     const inputEmail = email.current.value;
     const inputPhoneNumber = phoneNumber.current.value;
+
+    let participants = [];
+    if (props.id === 1) {
+      const inputParticipant = participant.current.value;
+      participants = [inputParticipant];
+    }
+    if (props.id === 2) {
+      const inputParticipant1 = participant1.current.value;
+      const inputParticipant2 = participant2.current.value;
+      const inputParticipant3 = participant3.current.value;
+
+      participants = [inputParticipant1, inputParticipant2, inputParticipant3];
+    }
 
     fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
       method: "POST",
@@ -60,7 +76,7 @@ export default function IndividualLessonForm(props) {
       body: JSON.stringify({
         location: inputLocation,
         date: dateValue,
-        participants: [inputParticipant],
+        participants: participants,
         notes: inputAdditionalNotes,
         name: inputName,
         email: inputEmail,
@@ -70,11 +86,20 @@ export default function IndividualLessonForm(props) {
       if (res.status === 200) {
         setFormValidated(false);
         location.current.value = "";
-        participant.current.value = "";
         additionalNotes.current.value = "";
         name.current.value = "";
         email.current.value = "";
         phoneNumber.current.value = "";
+
+        if (props.id === 1) {
+          participant.current.value = "";
+        }
+        if (props.id === 2) {
+          participant1.current.value = "";
+          participant2.current.value = "";
+          participant3.current.value = "";
+        }
+
         setDateValue(null);
         props.onFormSubmitSuccess();
       }
@@ -150,38 +175,11 @@ export default function IndividualLessonForm(props) {
             <></>
           )}
           {props.id === 2 ? (
-            <>
-              {" "}
-              <Form.Group style={{ margin: "1rem 0" }}>
-                <Form.Label htmlFor="Participant 1">Participant 1</Form.Label>
-                <Form.Control
-                  id="Participant 1"
-                  required
-                  type="name"
-                  placeholder="Enter name"
-                />
-              </Form.Group>
-              <Form.Group style={{ margin: "1rem 0" }}>
-                <Form.Label htmlFor="Participant 2">Participant 2</Form.Label>
-                <Form.Control
-                  id="Participant 2"
-                  required
-                  type="name"
-                  placeholder="Enter name"
-                />
-                <Form.Control.Feedback type="invalid">
-                  You must have at least 2 participants for this lesson.
-                </Form.Control.Feedback>
-              </Form.Group>
-              <Form.Group style={{ margin: "1rem 0" }}>
-                <Form.Label htmlFor="Participant 3">Participant 3</Form.Label>
-                <Form.Control
-                  id="Participant 3"
-                  type="name"
-                  placeholder="Enter name"
-                />
-              </Form.Group>
-            </>
+            <ParticipantsFormGroup
+              participant1={participant1}
+              participant2={participant2}
+              participant3={participant3}
+            />
           ) : (
             <></>
           )}
