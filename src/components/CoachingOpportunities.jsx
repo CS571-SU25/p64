@@ -1,5 +1,5 @@
 import LessonCategories from "./LessonCategories";
-import { lessonTypes } from "./bookLesson/BookLesson";
+import { lessonTypes } from "../consts/lessonTypes";
 
 export default function CoachingOpportunities() {
   const inPersonLessons = lessonTypes.filter((lesson) => lesson.inPerson);

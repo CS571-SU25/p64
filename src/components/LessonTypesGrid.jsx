@@ -1,4 +1,4 @@
-import { lessonTypes } from "./bookLesson/BookLesson";
+import { lessonTypes } from "../consts/lessonTypes";
 import LessonCard from "./LessonCard";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
