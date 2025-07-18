@@ -68,10 +68,6 @@ export default function IndividualLessonForm(props) {
         name.current.value = "";
         email.current.value = "";
         phoneNumber.current.value = "";
-        window.scrollTo({
-          top: 0,
-          left: 0,
-        });
         props.onFormSubmitSuccess();
       }
     });

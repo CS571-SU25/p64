@@ -1,7 +1,8 @@
 import IndividualLessonForm from "./IndividualLessonForm";
-import { Container, Form, Alert } from "react-bootstrap";
+import { Container, Form } from "react-bootstrap";
 import { useState } from "react";
 import { lessonTypes } from "../../consts/lessonTypes";
+import AlertMessage from "../pageGlobals/AlertMessage";
 
 export default function BookLesson() {
   const [lesson, setLesson] = useState(null);
@@ -31,19 +32,11 @@ export default function BookLesson() {
 
   return (
     <div>
-      {showSuccessAlert ? (
-        <Alert
-          variant="success"
-          onClose={() => setShowSuccessAlert(false)}
-          dismissible
-          className="ms-auto"
-          style={{ width: "60%", margin: "1rem" }}
-        >
-          Lesson successfully booked!
-        </Alert>
-      ) : (
-        <></>
-      )}
+      <AlertMessage
+        showSuccessAlert={showSuccessAlert}
+        setShowSuccessAlert={() => setShowSuccessAlert(() => false)}
+        message={"Lesson was successfully booked!"}
+      />
       <Form.Group
         controlId="lesson-type"
         style={{ width: "80%", margin: "2rem auto", textAlign: "left" }}
