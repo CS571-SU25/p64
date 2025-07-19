@@ -82,9 +82,11 @@ export default function PendingFilmReviewGrid(props) {
       </Row>
       <hr />
       {pendingReviews.length == 0 ? (
-        <div>There are no film reviews currently pending.</div>
+        <div style={{ minHeight: "40vh", paddingTop: "3rem" }}>
+          There are currently no films pending for review.
+        </div>
       ) : (
-        <Row style={{ margin: "2rem" }}>
+        <Row style={{ minHeight: "40vh" }}>
           {pendingReviews.map((review, index) => {
             return (
               <Col key={index} sm={12} md={6} lg={4}>

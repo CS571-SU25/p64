@@ -161,7 +161,7 @@ export default function InPersonLessonsView(props) {
           There are currently no lessons.
         </div>
       ) : (
-        <Row>
+        <Row style={{ minHeight: "40vh" }}>
           {searchedBookedLessons.map((lesson) => {
             return (
               <Col key={lesson.id} sm={12} md={6} lg={4}>
