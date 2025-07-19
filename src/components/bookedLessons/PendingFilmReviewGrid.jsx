@@ -37,14 +37,15 @@ export default function PendingFilmReviewGrid(props) {
           {pendingReviews.map((review, index) => {
             return (
               <Col key={index} sm={12} md={6} lg={4}>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Pending Review</Card.Title>
-                    <Card.Subtitle>{review.participants[0]}</Card.Subtitle>
-                    <Card.Text>Submitted on {review.submittedAt}</Card.Text>
-                    <Card.Text>
-                      <em>Submitted by {review.name}</em>
-                    </Card.Text>
+                <Card style={{ margin: "1rem auto" }}>
+                  <Card.Title>Pending Review</Card.Title>
+                  <Card.Subtitle>{review.participants[0]}</Card.Subtitle>
+                  <hr />
+                  <Card.Body style={{ padding: 0, margin: 0 }}>
+                    <em>
+                      Submitted by {review.name} <br />
+                      on {review.submittedAt}
+                    </em>
                   </Card.Body>
                 </Card>
               </Col>
