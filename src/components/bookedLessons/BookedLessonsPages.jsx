@@ -6,6 +6,7 @@ export default function BookedLessonsPage(props) {
   const [bookedLessons, setBookedLessons] = useState([]);
   const [searchedBookedLessons, setSearchedBookedLessons] = useState([]);
   const [participantName, setParticipantName] = useState("");
+  const [bookedByName, setBookedByName] = useState("");
 
   useEffect(() => {
     fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
@@ -44,9 +45,17 @@ export default function BookedLessonsPage(props) {
         bookedLessonsToSearch = resultsByParticipantName;
       }
 
+      if (bookedByName.trim() !== "") {
+        const resultsByBookedBy = bookedLessonsToSearch.filter((lesson) =>
+          lesson.name.toLowerCase().includes(bookedByName.toLowerCase().trim())
+        );
+
+        bookedLessonsToSearch = resultsByBookedBy;
+      }
+
       return bookedLessonsToSearch;
     });
-  }, [participantName, bookedLessons]);
+  }, [participantName, bookedByName, bookedLessons]);
 
   return (
     <Container style={{ margin: "2rem auto" }}>
@@ -59,6 +68,17 @@ export default function BookedLessonsPage(props) {
           onChange={(e) => setParticipantName(e.target.value)}
           id="participantName"
           placeholder="Search by participant name"
+        />
+      </Form.Group>
+      <Form.Group>
+        <Form.Label required htmlFor="bookedByName">
+          Booked by Name
+        </Form.Label>
+        <Form.Control
+          value={bookedByName}
+          onChange={(e) => setBookedByName(e.target.value)}
+          id="bookedByName"
+          placeholder="Search by the person who booked the name"
         />
       </Form.Group>
       {searchedBookedLessons.length == 0 ? (
