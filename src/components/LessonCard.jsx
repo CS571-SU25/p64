@@ -48,7 +48,7 @@ export default function LessonCard(props) {
         {props.id === 4 ? (
           <a href="./Test-File.pdf" download="Test-File.pdf">
             <Button style={{ width: "100%" }} variant="primary">
-              Purchase PDF
+              Get PDF
             </Button>
           </a>
         ) : (

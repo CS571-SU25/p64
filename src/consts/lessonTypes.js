@@ -33,7 +33,7 @@ export const lessonTypes = [
   {
     id: 4,
     title: "Online Practice Guide",
-    price: "$40",
+    price: "Free",
     description:
       "This guide is a curated roadmap designed to help you reach the 4.0 level on your own schedule. Packed with targeted practice drills and intentional progressions, it empowers you to train effectively and independently. Whether you're working on fundamentals, refining strategy, or building consistency, this guide will elevate your training.",
     shortDescription:
