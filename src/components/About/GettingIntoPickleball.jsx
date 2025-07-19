@@ -7,6 +7,7 @@ export default function GettingIntoPickleball() {
       <h2>Pickleball Journey</h2>
       {pickleballJourneyData.map((data) => (
         <CardTextBanner
+          key={data.id}
           src={data.src}
           alt={data.alt}
           heading={data.heading}

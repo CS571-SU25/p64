@@ -12,7 +12,12 @@ export default function LessonCategories(props) {
       <Row>
         {props.data.map((lesson) => {
           return (
-            <Col style={{ marginBottom: "1rem" }} sm={12} lg={6}>
+            <Col
+              key={lesson.title}
+              style={{ marginBottom: "1rem" }}
+              sm={12}
+              lg={6}
+            >
               <LessonCard
                 {...lesson}
                 showLongDescription={true}

@@ -38,8 +38,8 @@ export default function ExperienceCard(props) {
         <></>
       )}
       <ListGroup className="list-group-flush">
-        {props.tasks.map((task) => {
-          return <ListGroup.Item>{task}</ListGroup.Item>;
+        {props.tasks.map((task, index) => {
+          return <ListGroup.Item key={index}>{task}</ListGroup.Item>;
         })}
       </ListGroup>
     </Card>
