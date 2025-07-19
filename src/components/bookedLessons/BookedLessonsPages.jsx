@@ -27,7 +27,7 @@ export default function BookedLessonsPage(props) {
       activeKey={key}
       onSelect={(k) => setKey(k)}
     >
-      <Tab eventKey="inPersonLessons" title="In Person Lessons">
+      <Tab eventKey="inPersonLessons" title="In-Person Lessons">
         <InPersonLessonsView allLessons={allLessons} />
       </Tab>
       <Tab eventKey="onlineVideoReview" title="Pending Film Reviews">
