@@ -85,54 +85,74 @@ export default function InPersonLessonsView(props) {
 
   return (
     <Container style={{ margin: "2rem auto" }}>
-      <Form.Group>
-        <Form.Label required htmlFor="participantName">
-          Participant Name
-        </Form.Label>
-        <Form.Control
-          value={participantName}
-          onChange={(e) => setParticipantName(e.target.value)}
-          id="participantName"
-          placeholder="Search by participant name"
-        />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label required htmlFor="bookedByName">
-          Booked by Name
-        </Form.Label>
-        <Form.Control
-          value={bookedByName}
-          onChange={(e) => setBookedByName(e.target.value)}
-          id="bookedByName"
-          placeholder="Search by the person who booked the name"
-        />
-      </Form.Group>
-      <Form.Group style={{ margin: "1rem 0" }}>
-        <Form.Label htmlFor="location">Location</Form.Label>
-        <Form.Select
-          id="location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-        >
-          <option value="0">Search by location</option>
-          <option value="1">Garner Park- 333 S Rosa Rd</option>
-          <option value="2">Pickleball Pro Courts- 2907 N Sherman Ave</option>
-        </Form.Select>
-      </Form.Group>
-      <Form.Group style={{ margin: "1rem 0" }}>
-        <Form.Label htmlFor="lessonDate">Lesson Date</Form.Label>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker
-            id="lessonDate"
-            label="Search by date"
-            value={dateValue}
-            onChange={(newValue) => setDateValue(newValue)}
-          />
-        </LocalizationProvider>
-      </Form.Group>
-
+      <Row style={{ textAlign: "left", margin: "1rem auto" }}>
+        <Col sm={12} md={6} style={{ margin: "1rem 0" }}>
+          <Form.Group>
+            <Form.Label required htmlFor="participantName">
+              Participant Name
+            </Form.Label>
+            <Form.Control
+              value={participantName}
+              onChange={(e) => setParticipantName(e.target.value)}
+              id="participantName"
+              placeholder="Search by participant name"
+            />
+          </Form.Group>
+        </Col>
+        <Col sm={12} md={6} style={{ margin: "1rem 0" }}>
+          <Form.Group>
+            <Form.Label required htmlFor="bookedByName">
+              Booked by Name
+            </Form.Label>
+            <Form.Control
+              value={bookedByName}
+              onChange={(e) => setBookedByName(e.target.value)}
+              id="bookedByName"
+              placeholder="Search by the person who booked the lesson"
+            />
+          </Form.Group>
+        </Col>
+        <Col sm={12} md={6} style={{ margin: "1rem 0" }}>
+          <Form.Group>
+            <Form.Label htmlFor="location">Location</Form.Label>
+            <Form.Select
+              id="location"
+              value={location}
+              onChange={(e) => setLocation(e.target.value)}
+            >
+              <option value="0">Search by location</option>
+              <option value="1">Garner Park- 333 S Rosa Rd</option>
+              <option value="2">
+                Pickleball Pro Courts- 2907 N Sherman Ave
+              </option>
+            </Form.Select>
+          </Form.Group>
+        </Col>
+        <Col sm={12} md={6} style={{ margin: "1rem 0" }}>
+          <Row>
+            <Form.Group>
+              <Col sm={12}>
+                <Form.Label htmlFor="lessonDate">Lesson Date</Form.Label>
+              </Col>
+              <Col sm={12}>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    id="lessonDate"
+                    label="Search by date"
+                    value={dateValue}
+                    onChange={(newValue) => setDateValue(newValue)}
+                  />
+                </LocalizationProvider>
+              </Col>
+            </Form.Group>
+          </Row>
+        </Col>
+      </Row>
+      <hr />
       {searchedBookedLessons.length == 0 ? (
-        <div>No lessons.</div>
+        <div style={{ minHeight: "40vh", paddingTop: "3rem" }}>
+          There are currently no lessons.
+        </div>
       ) : (
         <Row>
           {searchedBookedLessons.map((lesson) => {
