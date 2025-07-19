@@ -14,14 +14,9 @@ export default function InPersonLessonsView(props) {
   const [dateValue, setDateValue] = useState(null);
 
   useEffect(() => {
-    fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
-      headers: {
-        "X-CS571-ID": CS571.getBadgerId(),
-      },
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        const sortedLessonsByDate = Object.values(json.results)
+    setBookedLessons(() => {
+      if (props.allLessons) {
+        const sortedLessonsByDate = Object.values(props.allLessons)
           .filter((result) => result.location !== null)
           .sort((first, next) => new Date(first.date) - new Date(next.date));
         sortedLessonsByDate.forEach((l) => {
@@ -31,9 +26,13 @@ export default function InPersonLessonsView(props) {
             timeStyle: "short",
           });
         });
-        setBookedLessons(sortedLessonsByDate);
-      });
-  }, []);
+
+        return sortedLessonsByDate;
+      }
+
+      return [];
+    });
+  }, [props.allLessons]);
 
   useEffect(() => {
     setSearchedBookedLessons(() => {
