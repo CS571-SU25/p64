@@ -7,6 +7,7 @@ export default function BookedLessonsPage(props) {
   const [searchedBookedLessons, setSearchedBookedLessons] = useState([]);
   const [participantName, setParticipantName] = useState("");
   const [bookedByName, setBookedByName] = useState("");
+  const [location, setLocation] = useState("0");
 
   useEffect(() => {
     fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
@@ -53,9 +54,17 @@ export default function BookedLessonsPage(props) {
         bookedLessonsToSearch = resultsByBookedBy;
       }
 
+      if (location !== "0") {
+        const resultsByLocation = bookedLessonsToSearch.filter(
+          (lesson) => lesson.location === location
+        );
+
+        bookedLessonsToSearch = resultsByLocation;
+      }
+
       return bookedLessonsToSearch;
     });
-  }, [participantName, bookedByName, bookedLessons]);
+  }, [participantName, bookedByName, bookedLessons, location]);
 
   return (
     <Container style={{ margin: "2rem auto" }}>
@@ -80,6 +89,18 @@ export default function BookedLessonsPage(props) {
           id="bookedByName"
           placeholder="Search by the person who booked the name"
         />
+      </Form.Group>
+      <Form.Group style={{ margin: "1rem 0" }}>
+        <Form.Label htmlFor="location">Location</Form.Label>
+        <Form.Select
+          id="location"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        >
+          <option value="0">Search by location</option>
+          <option value="1">Garner Park- 333 S Rosa Rd</option>
+          <option value="2">Pickleball Pro Courts- 2907 N Sherman Ave</option>
+        </Form.Select>
       </Form.Group>
       {searchedBookedLessons.length == 0 ? (
         <div>There are no lessons</div>
