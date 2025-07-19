@@ -23,6 +23,7 @@ export default function BookedLessonCard(props) {
           <Col>
             <Card.Title>{lessonName}</Card.Title>
             <Card.Subtitle>{props.date}</Card.Subtitle>
+            <div>{props.time}</div>
             <Card.Text>Fake Location Here</Card.Text>
           </Col>
           <Col style={{ margin: "auto" }}>

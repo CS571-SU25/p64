@@ -22,8 +22,14 @@ export default function InPersonLessonsView(props) {
         sortedLessonsByDate.forEach((l) => {
           const formattedDate = new Date(l.date);
           l.date = formattedDate.toLocaleString("en-US", {
-            dateStyle: "medium",
-            timeStyle: "short",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          });
+          l.time = formattedDate.toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "2-digit",
+            hour12: true,
           });
         });
 
