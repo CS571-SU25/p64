@@ -35,6 +35,7 @@ export default function BookedLessonCard(props) {
           </Col>
         </Row>
       </Card.Body>
+      <em>Booked by {props.name}</em>
     </Card>
   );
 }

@@ -4,7 +4,8 @@ import BookedLessonCard from "./BookedLessonCard";
 
 export default function BookedLessonsPage(props) {
   const [bookedLessons, setBookedLessons] = useState([]);
-  const [name, setName] = useState("");
+  const [searchedBookedLessons, setSearchedBookedLessons] = useState([]);
+  const [participantName, setParticipantName] = useState("");
 
   useEffect(() => {
     fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
@@ -28,20 +29,43 @@ export default function BookedLessonsPage(props) {
       });
   }, []);
 
+  useEffect(() => {
+    setSearchedBookedLessons(() => {
+      let bookedLessonsToSearch = JSON.parse(JSON.stringify(bookedLessons));
+
+      if (participantName.trim() !== "") {
+        const resultsByParticipantName = bookedLessonsToSearch.filter(
+          (lesson) =>
+            lesson.participants.some((p) =>
+              p.toLowerCase().includes(participantName.toLowerCase().trim())
+            )
+        );
+
+        bookedLessonsToSearch = resultsByParticipantName;
+      }
+
+      return bookedLessonsToSearch;
+    });
+  }, [participantName, bookedLessons]);
+
   return (
     <Container style={{ margin: "2rem auto" }}>
       <Form.Group>
-        <Form.Label required htmlFor="name">
+        <Form.Label required htmlFor="participantName">
           Participant Name
         </Form.Label>
-        <Form.Control required id="name" placeholder="Search by name" />
-        <Form.Control.Feedback type="invalid">Required</Form.Control.Feedback>
+        <Form.Control
+          value={participantName}
+          onChange={(e) => setParticipantName(e.target.value)}
+          id="participantName"
+          placeholder="Search by participant name"
+        />
       </Form.Group>
-      {bookedLessons.length == 0 ? (
+      {searchedBookedLessons.length == 0 ? (
         <div>There are no lessons</div>
       ) : (
         <Row>
-          {bookedLessons.map((lesson) => {
+          {searchedBookedLessons.map((lesson) => {
             return (
               <Col key={lesson.date} sm={12} md={6} lg={4}>
                 <BookedLessonCard {...lesson} />
