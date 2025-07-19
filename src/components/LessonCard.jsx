@@ -8,6 +8,10 @@ export default function LessonCard(props) {
   const handleFormModalClose = () => setShowFormModal(false);
   const handleFormModalShow = () => setShowFormModal(true);
 
+  const onFormSubmitSuccess = () => {
+    handleFormModalClose();
+  };
+
   return (
     <>
       <Card
@@ -58,6 +62,7 @@ export default function LessonCard(props) {
       <FormModal
         show={showFormModal}
         onHide={handleFormModalClose}
+        onFormSubmitSuccess={onFormSubmitSuccess}
         {...props}
       />
     </>

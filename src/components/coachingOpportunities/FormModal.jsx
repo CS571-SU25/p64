@@ -9,7 +9,10 @@ export default function FormModal(props) {
       onHide={props.onHide}
       size="lg"
     >
-      <IndividualLessonForm {...props} />
+      <IndividualLessonForm
+        {...props}
+        onFormSubmitSuccess={props.onFormSubmitSuccess}
+      />
     </Modal>
   );
 }
