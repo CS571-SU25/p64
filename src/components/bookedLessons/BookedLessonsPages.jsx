@@ -14,7 +14,6 @@ export default function BookedLessonsPage(props) {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.results);
         const sortedLessonsByDate = Object.values(json.results)
           .filter((result) => result.location !== null)
           .sort((first, next) => new Date(first.date) - new Date(next.date));
