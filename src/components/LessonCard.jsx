@@ -1,51 +1,59 @@
-import { useNavigate } from "react-router";
 import { Button, Card } from "react-bootstrap";
+import FormModal from "./coachingOpportunities/FormModal";
+import { useState } from "react";
 
 export default function LessonCard(props) {
-  let navigate = useNavigate();
+  const [showFormModal, setShowFormModal] = useState(false);
+
+  const handleFormModalClose = () => setShowFormModal(false);
+  const handleFormModalShow = () => setShowFormModal(true);
 
   return (
-    <Card
-      style={{
-        width: props.width,
-        height: props.height,
-        textAlign: "center",
-        margin: "auto",
-      }}
-    >
-      <Card.Title>{props.title}</Card.Title>
-      <Card.Subtitle>{props.price}</Card.Subtitle>
-      <Card.Body
+    <>
+      <Card
         style={{
-          alignContent: "center",
+          width: props.width,
+          height: props.height,
+          textAlign: "center",
+          margin: "auto",
         }}
       >
-        {props.showLongDescription ? (
-          <Card.Text>{props.description}</Card.Text>
-        ) : (
-          <Card.Text>{props.shortDescription}</Card.Text>
-        )}
-      </Card.Body>
-      {props.id === 1 || props.id === 2 ? (
-        <Button
-          variant="primary"
-          onClick={() => navigate("/book-lesson", { state: props })}
+        <Card.Title>{props.title}</Card.Title>
+        <Card.Subtitle>{props.price}</Card.Subtitle>
+        <Card.Body
+          style={{
+            alignContent: "center",
+          }}
         >
-          Book Lesson
-        </Button>
-      ) : (
-        <div></div>
-      )}
-      {props.id === 3 ? (
-        <Button variant="primary">Submit Footage</Button>
-      ) : (
-        <div></div>
-      )}
-      {props.id === 4 ? (
-        <Button variant="primary">Purchase PDF</Button>
-      ) : (
-        <div></div>
-      )}
-    </Card>
+          {props.showLongDescription ? (
+            <Card.Text>{props.description}</Card.Text>
+          ) : (
+            <Card.Text>{props.shortDescription}</Card.Text>
+          )}
+        </Card.Body>
+        {props.id === 1 || props.id === 2 ? (
+          <Button variant="primary" onClick={handleFormModalShow}>
+            Book Lesson
+          </Button>
+        ) : (
+          <div></div>
+        )}
+        {props.id === 3 ? (
+          <Button variant="primary">Submit Footage</Button>
+        ) : (
+          <div></div>
+        )}
+        {props.id === 4 ? (
+          <Button variant="primary">Purchase PDF</Button>
+        ) : (
+          <div></div>
+        )}
+      </Card>
+      <FormModal
+        show={showFormModal}
+        onHide={handleFormModalClose}
+        {...props}
+      />
+    </>
   );
 }
