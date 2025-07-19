@@ -1,7 +1,7 @@
 import "./App.css";
 import { HashRouter, Routes, Route } from "react-router";
 import Home from "./components/homePage/Home";
-import CoachingOpportunities from "./components/CoachingOpportunities";
+import CoachingOpportunities from "./components/coachingOpportunities/CoachingOpportunities";
 import BookLesson from "./components/bookLesson/BookLesson";
 import FavoriteProducts from "./components/favoriteProducts/FavoriteProducts";
 import AboutPage from "./components/About/AboutPage";
