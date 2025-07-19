@@ -39,7 +39,9 @@ export default function LessonCard(props) {
           <div></div>
         )}
         {props.id === 3 ? (
-          <Button variant="primary">Submit Footage</Button>
+          <Button variant="primary" onClick={handleFormModalShow}>
+            Submit Footage
+          </Button>
         ) : (
           <div></div>
         )}
