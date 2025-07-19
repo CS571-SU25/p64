@@ -7,11 +7,21 @@ export default function PendingFilmReviewGrid(props) {
   useEffect(() => {
     setPendingReviews(() => {
       if (props.allLessons) {
-        const reviews = Object.values(props.allLessons).filter(
-          (result) => result.location === null
-        );
+        const sortedLessonsSubmittedAt = Object.values(props.allLessons)
+          .filter((result) => result.location === null)
+          .sort(
+            (first, next) =>
+              new Date(first.submittedAt) - new Date(next.submittedAt)
+          );
+        sortedLessonsSubmittedAt.forEach((l) => {
+          const formattedDate = new Date(l.submittedAt);
+          l.submittedAt = formattedDate.toLocaleString("en-US", {
+            dateStyle: "medium",
+            timeStyle: "short",
+          });
+        });
 
-        return reviews;
+        return sortedLessonsSubmittedAt;
       }
 
       return [];
@@ -19,11 +29,11 @@ export default function PendingFilmReviewGrid(props) {
   }, [props.allLessons]);
 
   return (
-    <Container>
+    <Container style={{ minHeight: "80vh" }}>
       {pendingReviews.length == 0 ? (
         <div>There are no film reviews currently pending.</div>
       ) : (
-        <Row>
+        <Row style={{ margin: "2rem" }}>
           {pendingReviews.map((review, index) => {
             return (
               <Col key={index} sm={12} md={6} lg={4}>
@@ -31,7 +41,10 @@ export default function PendingFilmReviewGrid(props) {
                   <Card.Body>
                     <Card.Title>Pending Review</Card.Title>
                     <Card.Subtitle>{review.participants[0]}</Card.Subtitle>
-                    <em>Booked by {review.name}</em>
+                    <Card.Text>Submitted on {review.submittedAt}</Card.Text>
+                    <Card.Text>
+                      <em>Submitted by {review.name}</em>
+                    </Card.Text>
                   </Card.Body>
                 </Card>
               </Col>

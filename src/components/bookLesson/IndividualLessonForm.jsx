@@ -83,6 +83,7 @@ export default function IndividualLessonForm(props) {
         email: inputEmail,
         phoneNumber: inputPhoneNumber,
         video: fileUpload.current?.value ?? null,
+        submittedAt: new Date(),
       }),
     }).then((res) => {
       if (res.status === 200) {
