@@ -23,6 +23,8 @@ export default function IndividualLessonForm(props) {
   const participant2 = useRef();
   const participant3 = useRef();
 
+  const fileUpload = useRef();
+
   const updateDateValue = (e) => {
     setDateValue(e);
     if (!dateValue) {
@@ -44,18 +46,17 @@ export default function IndividualLessonForm(props) {
 
     setFormValidated(true);
 
-    if (form.checkValidity() === false || !dateValue) {
+    if (form.checkValidity() === false || (!dateValue && props.id !== 3)) {
       return;
     }
 
-    const inputLocation = location.current.value;
     const inputAdditionalNotes = additionalNotes.current.value;
     const inputName = name.current.value;
     const inputEmail = email.current.value;
     const inputPhoneNumber = phoneNumber.current.value;
 
     let participants = [];
-    if (props.id === 1) {
+    if (props.id === 1 || props.id === 3) {
       const inputParticipant = participant.current.value;
       participants = [inputParticipant];
     }
@@ -74,30 +75,32 @@ export default function IndividualLessonForm(props) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        location: inputLocation,
+        location: location.current?.value ?? null,
         date: dateValue,
-        participants: participants,
+        participants: participants ?? null,
         notes: inputAdditionalNotes,
         name: inputName,
         email: inputEmail,
         phoneNumber: inputPhoneNumber,
+        video: fileUpload.current?.value ?? null,
       }),
     }).then((res) => {
       if (res.status === 200) {
         setFormValidated(false);
-        location.current.value = "";
         additionalNotes.current.value = "";
         name.current.value = "";
         email.current.value = "";
         phoneNumber.current.value = "";
-
-        if (props.id === 1) {
+        if (props.id === 1 || props.id === 3) {
           participant.current.value = "";
         }
         if (props.id === 2) {
           participant1.current.value = "";
           participant2.current.value = "";
           participant3.current.value = "";
+        }
+        if (props.id === 1 || props.id == 2) {
+          location.current.value = "";
         }
 
         setDateValue(null);
@@ -121,10 +124,15 @@ export default function IndividualLessonForm(props) {
           <h2>Lesson Info</h2>
           {props.id === 3 ? (
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="video-file-input">
+              <Form.Label htmlFor="Video File Upload">
                 Default file input example
               </Form.Label>
-              <Form.Control id="video-file-input" required type="file" />
+              <Form.Control
+                id="Video File Upload"
+                required
+                type="file"
+                ref={fileUpload}
+              />
             </Form.Group>
           ) : (
             <></>
@@ -166,6 +174,22 @@ export default function IndividualLessonForm(props) {
               <Form.Control
                 ref={participant}
                 id="Participant"
+                required
+                type="name"
+                placeholder="Enter name"
+              />
+            </Form.Group>
+          ) : (
+            <></>
+          )}
+          {props.id === 3 ? (
+            <Form.Group style={{ margin: "1rem 0" }}>
+              <Form.Label htmlFor="Person to Review">
+                Person to Review
+              </Form.Label>
+              <Form.Control
+                ref={participant}
+                id="Person to Review"
                 required
                 type="name"
                 placeholder="Enter name"
