@@ -8,6 +8,7 @@ import AboutPage from "./components/About/AboutPage";
 import ContactMe from "./components/ContactMe";
 import TopNavBar from "./components/pageGlobals/TopNavBar";
 import BottomPane from "./components/pageGlobals/BottomPane";
+import BookedLessonsPage from "./components/bookedLessons/BookedLessonsPages";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           path="/coaching-opportunities"
           element={<CoachingOpportunities />}
         ></Route>
+        <Route path="/booked-lessons" element={<BookedLessonsPage />}></Route>
         <Route path="/book-lesson" element={<BookLesson />}></Route>
         <Route path="/favorite-products" element={<FavoriteProducts />}></Route>
         <Route path="/about" element={<AboutPage />}></Route>

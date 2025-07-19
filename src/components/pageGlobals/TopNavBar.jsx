@@ -34,6 +34,14 @@ export default function TopNavBar() {
               Coaching Opportunities
             </Nav.Link>
             <Nav.Link
+              href="#booked-lessons"
+              style={{
+                color: "#ffffff",
+              }}
+            >
+              Booked Lessons
+            </Nav.Link>
+            <Nav.Link
               href="#favorite-products"
               style={{
                 color: "#ffffff",
