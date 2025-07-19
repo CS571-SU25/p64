@@ -19,6 +19,7 @@ export default function LessonCategories(props) {
               lg={6}
             >
               <LessonCard
+                showAlert={props.showAlert}
                 {...lesson}
                 showLongDescription={true}
                 height={"100%"}

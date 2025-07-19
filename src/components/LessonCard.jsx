@@ -10,6 +10,7 @@ export default function LessonCard(props) {
 
   const onFormSubmitSuccess = () => {
     handleFormModalClose();
+    props.showAlert();
   };
 
   return (
