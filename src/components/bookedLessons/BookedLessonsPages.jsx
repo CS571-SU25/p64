@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Container, Col, Row, Form } from "react-bootstrap";
 import BookedLessonCard from "./BookedLessonCard";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 export default function BookedLessonsPage(props) {
   const [bookedLessons, setBookedLessons] = useState([]);
@@ -8,6 +11,7 @@ export default function BookedLessonsPage(props) {
   const [participantName, setParticipantName] = useState("");
   const [bookedByName, setBookedByName] = useState("");
   const [location, setLocation] = useState("0");
+  const [dateValue, setDateValue] = useState(null);
 
   useEffect(() => {
     fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
@@ -62,9 +66,23 @@ export default function BookedLessonsPage(props) {
         bookedLessonsToSearch = resultsByLocation;
       }
 
+      if (dateValue) {
+        const formattedSearchDate = new Date(dateValue.$d);
+        const resultsByDate = bookedLessonsToSearch.filter((lesson) => {
+          const lessonDate = new Date(lesson.date);
+          return (
+            lessonDate.getFullYear() === formattedSearchDate.getFullYear() &&
+            lessonDate.getMonth() === formattedSearchDate.getMonth() &&
+            lessonDate.getDate() === formattedSearchDate.getDate()
+          );
+        });
+
+        bookedLessonsToSearch = resultsByDate;
+      }
+
       return bookedLessonsToSearch;
     });
-  }, [participantName, bookedByName, bookedLessons, location]);
+  }, [participantName, bookedByName, bookedLessons, location, dateValue]);
 
   return (
     <Container style={{ margin: "2rem auto" }}>
@@ -102,6 +120,14 @@ export default function BookedLessonsPage(props) {
           <option value="2">Pickleball Pro Courts- 2907 N Sherman Ave</option>
         </Form.Select>
       </Form.Group>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          label="Search by date"
+          value={dateValue}
+          onChange={(newValue) => setDateValue(newValue)}
+        />
+      </LocalizationProvider>
+
       {searchedBookedLessons.length == 0 ? (
         <div>There are no lessons</div>
       ) : (
