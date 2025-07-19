@@ -19,8 +19,9 @@ export default function InPersonLessonsView(props) {
         const sortedLessonsByDate = Object.values(props.allLessons)
           .filter((result) => result.location !== null)
           .sort((first, next) => new Date(first.date) - new Date(next.date));
-        sortedLessonsByDate.forEach((l) => {
+        sortedLessonsByDate.forEach((l, index) => {
           const formattedDate = new Date(l.date);
+          l.id = index;
           l.date = formattedDate.toLocaleString("en-US", {
             year: "numeric",
             month: "long",
@@ -163,7 +164,7 @@ export default function InPersonLessonsView(props) {
         <Row>
           {searchedBookedLessons.map((lesson) => {
             return (
-              <Col key={lesson.date} sm={12} md={6} lg={4}>
+              <Col key={lesson.id} sm={12} md={6} lg={4}>
                 <BookedLessonCard {...lesson} />
               </Col>
             );
