@@ -1,4 +1,4 @@
-import { Card, Row, Col, Container, Form } from "react-bootstrap";
+import { Card, Row, Col, Container, Form, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -6,6 +6,10 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 export default function PendingFilmReviewGrid(props) {
   const [pendingReviews, setPendingReviews] = useState([]);
+  const [searchedPendingReview, setSearchedPendingReview] = useState([]);
+  const [participantName, setParticipantName] = useState("");
+  const [bookedByName, setBookedByName] = useState("");
+  const [submittedDateValue, setSubmittedDateValue] = useState(null);
 
   useEffect(() => {
     setPendingReviews(() => {
@@ -31,6 +35,53 @@ export default function PendingFilmReviewGrid(props) {
     });
   }, [props.allLessons]);
 
+  useEffect(() => {
+    setSearchedPendingReview(() => {
+      let pendingReviewsToSearch = JSON.parse(JSON.stringify(pendingReviews));
+
+      if (participantName.trim() !== "") {
+        const resultsByParticipantName = pendingReviewsToSearch.filter(
+          (lesson) =>
+            lesson.participants.some((p) =>
+              p.toLowerCase().includes(participantName.toLowerCase().trim())
+            )
+        );
+
+        pendingReviewsToSearch = resultsByParticipantName;
+      }
+
+      if (bookedByName.trim() !== "") {
+        const resultsByBookedBy = pendingReviewsToSearch.filter((lesson) =>
+          lesson.name.toLowerCase().includes(bookedByName.toLowerCase().trim())
+        );
+
+        pendingReviewsToSearch = resultsByBookedBy;
+      }
+
+      if (submittedDateValue) {
+        const formattedSearchDate = new Date(submittedDateValue.$d);
+        const resultsByDate = pendingReviewsToSearch.filter((lesson) => {
+          const lessonDate = new Date(lesson.submittedAt);
+          return (
+            lessonDate.getFullYear() === formattedSearchDate.getFullYear() &&
+            lessonDate.getMonth() === formattedSearchDate.getMonth() &&
+            lessonDate.getDate() === formattedSearchDate.getDate()
+          );
+        });
+
+        pendingReviewsToSearch = resultsByDate;
+      }
+
+      return pendingReviewsToSearch;
+    });
+  }, [participantName, bookedByName, pendingReviews, submittedDateValue]);
+
+  function clearSearch() {
+    setParticipantName("");
+    setBookedByName("");
+    setSubmittedDateValue(null);
+  }
+
   return (
     <Container style={{ margin: "2rem auto" }}>
       <Row style={{ textAlign: "left", margin: "1rem auto" }}>
@@ -40,8 +91,8 @@ export default function PendingFilmReviewGrid(props) {
               Participant Name
             </Form.Label>
             <Form.Control
-              // value={participantName}
-              // onChange={(e) => setParticipantName(e.target.value)}
+              value={participantName}
+              onChange={(e) => setParticipantName(e.target.value)}
               id="participantName"
               placeholder="Search by participant name"
             />
@@ -53,8 +104,8 @@ export default function PendingFilmReviewGrid(props) {
               Booked by Name
             </Form.Label>
             <Form.Control
-              // value={bookedByName}
-              // onChange={(e) => setBookedByName(e.target.value)}
+              value={bookedByName}
+              onChange={(e) => setBookedByName(e.target.value)}
               id="bookedByName"
               placeholder="Search by the person who booked the lesson"
             />
@@ -71,8 +122,8 @@ export default function PendingFilmReviewGrid(props) {
                   <DatePicker
                     id="submittedDate"
                     label="Search by submitted date"
-                    // value={dateValue}
-                    // onChange={(newValue) => setDateValue(newValue)}
+                    value={submittedDateValue}
+                    onChange={(newValue) => setSubmittedDateValue(newValue)}
                   />
                 </LocalizationProvider>
               </Col>
@@ -80,14 +131,17 @@ export default function PendingFilmReviewGrid(props) {
           </Row>
         </Col>
       </Row>
+      <Button variant="light" onClick={clearSearch}>
+        Clear Search
+      </Button>
       <hr />
-      {pendingReviews.length == 0 ? (
+      {searchedPendingReview.length == 0 ? (
         <div style={{ minHeight: "40vh", paddingTop: "3rem" }}>
           There are currently no films pending for review.
         </div>
       ) : (
         <Row style={{ minHeight: "40vh" }}>
-          {pendingReviews.map((review, index) => {
+          {searchedPendingReview.map((review, index) => {
             return (
               <Col key={index} sm={12} md={6} lg={4}>
                 <Card style={{ margin: "1rem auto" }}>
