@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Col, Row, Form } from "react-bootstrap";
+import { Container, Col, Row, Form, Button } from "react-bootstrap";
 import BookedLessonCard from "./BookedLessonCard";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -90,6 +90,13 @@ export default function InPersonLessonsView(props) {
     });
   }, [participantName, bookedByName, bookedLessons, location, dateValue]);
 
+  function clearSearch() {
+    setParticipantName("");
+    setBookedByName("");
+    setLocation("0");
+    setDateValue(null);
+  }
+
   return (
     <Container style={{ margin: "2rem auto" }}>
       <Row style={{ textAlign: "left", margin: "1rem auto" }}>
@@ -155,6 +162,9 @@ export default function InPersonLessonsView(props) {
           </Row>
         </Col>
       </Row>
+      <Button variant="light" onClick={clearSearch}>
+        Clear Search
+      </Button>
       <hr />
       {searchedBookedLessons.length == 0 ? (
         <div style={{ minHeight: "40vh", paddingTop: "3rem" }}>
