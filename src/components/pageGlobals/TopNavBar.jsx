@@ -14,16 +14,16 @@ export default function TopNavBar() {
       collapseOnSelect
     >
       <Container fluid>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle />
         <Navbar.Brand
           href="/#"
           style={{
-            color: "#ffffff",
+            marginLeft: "0.3rem",
           }}
         >
           Chapman Pickleball Coaching
         </Navbar.Brand>
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Collapse>
           <Nav>
             <Nav.Link
               href="#coaching-opportunities"
