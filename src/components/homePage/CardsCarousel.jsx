@@ -1,62 +1,52 @@
-import { useState } from "react";
 import FavoriteProductCard from "../favoriteProducts/FavoriteProductCard";
-import { Carousel, Container, Row, Col } from "react-bootstrap";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function CoachingCardsCarousel(props) {
-  const [carouselIndex, setCarouselIndex] = useState(0);
-
-  const handleSelect = (selectedIndex) => {
-    setCarouselIndex(selectedIndex);
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div>
+    <div style={{ margin: 40 }}>
       <h1 style={{ textAlign: "center" }}>{props.heading}</h1>
-      <Carousel
-        activeIndex={carouselIndex}
-        onSelect={handleSelect}
-        slide={false}
-        indicators={false}
-      >
-        {props.items.map((itemsFor, outerIndex) => {
-          if (outerIndex <= Math.ceil(props.items.length / 3) - 1) {
-            return (
-              <Carousel.Item key={`out-index-" + ${outerIndex % 3}`}>
-                <Container>
-                  <Row>
-                    {props.items.map((item, innerIndex) => {
-                      const maxIndex = carouselIndex + 2;
-                      if (
-                        innerIndex >= carouselIndex &&
-                        innerIndex <= maxIndex
-                      ) {
-                        return (
-                          <Col
-                            style={{ margin: "1rem" }}
-                            key={`inner-index-" + ${innerIndex}`}
-                          >
-                            {props.showLessonCard ? (
-                              <LessonCard
-                                key={item.title}
-                                {...item}
-                                showLongDescription={false}
-                                height={"300px"}
-                                width={"300px"}
-                              />
-                            ) : (
-                              <FavoriteProductCard key={item.name} {...item} />
-                            )}
-                          </Col>
-                        );
-                      }
-                    })}
-                  </Row>
-                </Container>
-              </Carousel.Item>
-            );
-          }
+      <Slider {...settings}>
+        {props.items.map((item) => {
+          return <FavoriteProductCard key={item.name} {...item} />;
         })}
-      </Carousel>
+      </Slider>
     </div>
   );
 }
