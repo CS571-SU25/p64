@@ -1,5 +1,5 @@
-import { lessonTypes } from "../consts/lessonTypes";
-import LessonCard from "./LessonCard";
+import { lessonTypes } from "../../consts/lessonTypes";
+import LessonCard from "../LessonCard";
 import { Container, Col, Row } from "react-bootstrap";
 
 export default function LessonTypesGrid(props) {

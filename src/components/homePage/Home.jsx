@@ -2,7 +2,7 @@ import Image from "react-bootstrap/Image";
 import CardsCarousel from "./CardsCarousel";
 import AboutColin from "./AboutColin";
 import { favoriteProducts } from "../../consts/favoriteProducts";
-import LessonTypesGrid from "../LessonTypesGrid";
+import LessonTypesGrid from "./LessonTypesGrid";
 
 export default function Home() {
   return (
