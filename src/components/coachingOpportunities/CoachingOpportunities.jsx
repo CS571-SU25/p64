@@ -1,4 +1,4 @@
-import LessonCategories from "../LessonCategories";
+import LessonCategories from "./LessonCategories";
 import { lessonTypes } from "../../consts/lessonTypes";
 import AlertMessage from "../pageGlobals/AlertMessage";
 import { useState } from "react";

@@ -1,5 +1,5 @@
 import { Container, Col, Row } from "react-bootstrap";
-import LessonCard from "./LessonCard";
+import LessonCard from "../LessonCard";
 
 export default function LessonCategories(props) {
   return (
