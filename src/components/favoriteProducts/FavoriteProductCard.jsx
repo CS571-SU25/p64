@@ -12,10 +12,13 @@ export default function FavoriteProductCard(props) {
     >
       <Card.Title>{props.favoriteTitle}</Card.Title>
       <Card.Subtitle>{props.name}</Card.Subtitle>
-      <Card.Body>
-        <Card.Img variant="top" src={props.img} alt={props.name} />
-        <Card.Text>{props.description}</Card.Text>
-      </Card.Body>
+      <Card.Img
+        style={{
+          margin: "auto",
+        }}
+        src={props.img}
+        alt={props.name}
+      />
       <Button variant="primary" target="_blank" href={props.externalLink}>
         View Product
       </Button>
