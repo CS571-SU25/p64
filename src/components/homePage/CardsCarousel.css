@@ -1,0 +1,15 @@
+.slider-arrow {
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+}
+
+.previous {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
