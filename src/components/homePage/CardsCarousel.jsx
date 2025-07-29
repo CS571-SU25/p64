@@ -57,7 +57,7 @@ export default function CoachingCardsCarousel(props) {
   return (
     <div style={{ margin: 40 }}>
       <h1 style={{ textAlign: "center" }}>{props.heading}</h1>
-      <Slider {...settings}>
+      <Slider {...settings} style={{ marginTop: "1rem" }}>
         {props.items.map((item) => {
           return <FavoriteProductCard key={item.name} {...item} />;
         })}
