@@ -13,3 +13,8 @@
 .next {
   right: 10px;
 }
+
+.slick-dots li button:before {
+  font-size: 2rem;
+  color: black;
+}
