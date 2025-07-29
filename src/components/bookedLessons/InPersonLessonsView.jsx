@@ -4,6 +4,7 @@ import BookedLessonCard from "./BookedLessonCard";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { isWeekend } from "../../consts/isWeekend";
 
 export default function InPersonLessonsView(props) {
   const [bookedLessons, setBookedLessons] = useState([]);
@@ -155,6 +156,7 @@ export default function InPersonLessonsView(props) {
                     label="Search by date"
                     value={dateValue}
                     onChange={(newValue) => setDateValue(newValue)}
+                    shouldDisableDate={isWeekend}
                   />
                 </LocalizationProvider>
               </Col>

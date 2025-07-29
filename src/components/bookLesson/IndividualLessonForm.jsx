@@ -6,6 +6,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useRef } from "react";
 import ParticipantsFormGroup from "../bookLesson/ParticipantsFormGroup";
+import { isWeekend } from "../../consts/isWeekend";
 
 export default function IndividualLessonForm(props) {
   const [formValidated, setFormValidated] = useState(false);
@@ -156,6 +157,7 @@ export default function IndividualLessonForm(props) {
                   label="Select lesson date"
                   value={dateValue}
                   onChange={updateDateValue}
+                  shouldDisableDate={isWeekend}
                   slotProps={{
                     textField: {
                       required: true,
