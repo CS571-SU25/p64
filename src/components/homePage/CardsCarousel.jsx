@@ -27,7 +27,7 @@ export default function CoachingCardsCarousel(props) {
     prevArrow: <PreviousArrow />,
     responsive: [
       {
-        breakpoint: 1300,
+        breakpoint: 1500,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -36,7 +36,7 @@ export default function CoachingCardsCarousel(props) {
         },
       },
       {
-        breakpoint: 1024,
+        breakpoint: 1200,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
