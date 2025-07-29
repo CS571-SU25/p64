@@ -4,16 +4,22 @@ import { Container, Col, Row } from "react-bootstrap";
 
 export default function LessonTypesGrid(props) {
   return (
-    <Container>
+    <Container style={{ padding: 0 }}>
       <Row>
         {lessonTypes.map((lesson) => {
           return (
-            <Col key={lesson.title} style={{ marginBottom: "1rem" }}>
+            <Col
+              sm={12}
+              md={6}
+              xl={3}
+              key={lesson.title}
+              style={{ marginBottom: "1rem" }}
+            >
               <LessonCard
                 {...lesson}
                 showLongDescription={props.showLongDescription}
                 height={props.height}
-                width={"300px"}
+                width={"100%"}
                 showAlert={props.showAlert}
               />
             </Col>
