@@ -5,7 +5,7 @@ export default function TopNavBar() {
     <Navbar
       variant="dark"
       sticky="top"
-      expand="lg"
+      expand="xl"
       style={{
         padding: "1rem 0",
         background: "#010a2b",
