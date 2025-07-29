@@ -100,7 +100,7 @@ export default function InPersonLessonsView(props) {
   return (
     <Container style={{ margin: "2rem auto" }}>
       <Row style={{ textAlign: "left", margin: "1rem auto" }}>
-        <Col sm={12} md={6} style={{ margin: "1rem 0" }}>
+        <Col sm={12} lg={6} style={{ margin: "1rem 0" }}>
           <Form.Group>
             <Form.Label required htmlFor="participantName">
               Participant Name
@@ -113,7 +113,7 @@ export default function InPersonLessonsView(props) {
             />
           </Form.Group>
         </Col>
-        <Col sm={12} md={6} style={{ margin: "1rem 0" }}>
+        <Col sm={12} lg={6} style={{ margin: "1rem 0" }}>
           <Form.Group>
             <Form.Label required htmlFor="bookedByName">
               Booked by Name
@@ -126,7 +126,7 @@ export default function InPersonLessonsView(props) {
             />
           </Form.Group>
         </Col>
-        <Col sm={12} md={6} style={{ margin: "1rem 0" }}>
+        <Col sm={12} lg={6} style={{ margin: "1rem 0" }}>
           <Form.Group>
             <Form.Label htmlFor="location">Location</Form.Label>
             <Form.Select
@@ -142,7 +142,7 @@ export default function InPersonLessonsView(props) {
             </Form.Select>
           </Form.Group>
         </Col>
-        <Col sm={12} md={6} style={{ margin: "1rem 0" }}>
+        <Col sm={12} lg={6} style={{ margin: "1rem 0" }}>
           <Row>
             <Form.Group>
               <Col sm={12}>
