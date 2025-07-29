@@ -9,7 +9,12 @@ export default function AlertMessage(props) {
           onClose={props.setShowSuccessAlert}
           dismissible
           className="ms-auto"
-          style={{ width: "60%", margin: "1rem" }}
+          style={{
+            width: "60%",
+            margin: "1rem",
+            position: "absolute",
+            right: 0,
+          }}
         >
           {props.message}
         </Alert>

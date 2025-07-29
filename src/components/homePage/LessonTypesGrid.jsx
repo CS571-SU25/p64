@@ -14,6 +14,7 @@ export default function LessonTypesGrid(props) {
                 showLongDescription={props.showLongDescription}
                 height={props.height}
                 width={"300px"}
+                showAlert={props.showAlert}
               />
             </Col>
           );

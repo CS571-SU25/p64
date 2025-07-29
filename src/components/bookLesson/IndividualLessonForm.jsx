@@ -225,7 +225,7 @@ export default function IndividualLessonForm(props) {
             email={email}
             phoneNumber={phoneNumber}
           />
-          <Button variant="primary" type="submit">
+          <Button variant="primary" onClick={(e) => handleSubmit(e)}>
             Submit
           </Button>
         </div>
