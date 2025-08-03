@@ -28,19 +28,21 @@ export default function IndividualLessonForm(props) {
   const fileUpload = useRef();
 
   useEffect(() => {
-    fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
-      headers: {
-        "X-CS571-ID": CS571.getBadgerId(),
-      },
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        const allBookedLessons = Object.values(json.results)
-          .filter((result) => result.location !== null)
-          .sort((first, next) => new Date(first.date) - new Date(next.date))
-          .map((lesson) => new Date(lesson.date));
-        setBookedLessons(() => allBookedLessons);
-      });
+    if (props.id !== 3) {
+      fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
+        headers: {
+          "X-CS571-ID": CS571.getBadgerId(),
+        },
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          const allBookedLessons = Object.values(json.results)
+            .filter((result) => result.location !== null)
+            .sort((first, next) => new Date(first.date) - new Date(next.date))
+            .map((lesson) => new Date(lesson.date));
+          setBookedLessons(() => allBookedLessons);
+        });
+    }
   }, []);
 
   const updateDateValue = (e) => {
