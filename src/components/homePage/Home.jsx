@@ -36,7 +36,7 @@ export default function Home() {
       </div>
       <AboutColin />
       <CardsCarousel
-        heading={"Favorite Products"}
+        heading={"Colin's Favorite Products"}
         showLessonCard={false}
         items={favoriteProducts}
       />
