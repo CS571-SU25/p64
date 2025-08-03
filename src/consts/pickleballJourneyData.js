@@ -14,6 +14,6 @@ export const pickleballJourneyData = [
     alt: "Colin and His Mixed Partner",
     heading: "Local and Tournament Play",
     year: "2025",
-    text: "After graduating from the University of Wisconsin-Eau Claire, Colin wanted to continue strengthening his skills and meeting new people. Currently, he practices frequently with local pickleball players in Madison. He also plays frequently in men's and mixed doubles tournaments.",
+    text: "After graduating from the University of Wisconsin-Eau Claire, Colin wanted to continue strengthening his pickleball skills and meeting new people. Currently, he practices frequently with local pickleball players in Madison. He also plays frequently in men's and mixed doubles tournaments.",
   },
 ];
