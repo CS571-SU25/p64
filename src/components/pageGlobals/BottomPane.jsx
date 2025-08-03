@@ -15,6 +15,7 @@ export default function BottomPane() {
         className="p-2 ms-auto"
         href="https://www.instagram.com/chapmanpickleball/#"
         target="_blank"
+        aria-label="Colin's Instagram"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -31,6 +32,7 @@ export default function BottomPane() {
         className="p-2"
         href="https://www.youtube.com/@colinchapmanpickleball"
         target="_blank"
+        aria-label="Colin's Youtube"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
