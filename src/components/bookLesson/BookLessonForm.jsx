@@ -171,9 +171,7 @@ export default function BookLessonForm(props) {
           <h2>Lesson Info</h2>
           {props.id === 3 ? (
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="Video File Upload">
-                Default file input example
-              </Form.Label>
+              <Form.Label htmlFor="Video File Upload">Video footage</Form.Label>
               <Form.Control
                 id="Video File Upload"
                 required
