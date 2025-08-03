@@ -169,7 +169,7 @@ export default function InPersonLessonsView(props) {
       <hr />
       {searchedBookedLessons.length == 0 ? (
         <div style={{ minHeight: "40vh", paddingTop: "3rem" }}>
-          There are currently no lessons.
+          There are currently no booked lessons.
         </div>
       ) : (
         <Row style={{ minHeight: "40vh" }}>
