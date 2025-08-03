@@ -25,9 +25,9 @@ export const coachingExperience = [
     location: "Green Bay Tennis Center",
     title: "Junior Tennis Instructor",
     tasks: [
-      "Taught from ages 6-70",
+      "Coached ages 6-70",
       "Assisted in group lessons",
-      "Taught Private Lessons",
+      "Taught private lessons",
     ],
   },
   {
