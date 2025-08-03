@@ -21,7 +21,7 @@ export const favoriteProducts = [
   {
     favoriteTitle: "Favorite Grips",
     img: "./pro-track-overgrip.png",
-    name: "Bodhi ProTack Overgrips",
+    name: "Bodhi PROtack Overgrips",
     externalLink:
       "https://bodhipickleball.com/collections/bodhi-grip-premium-overgrips/products/bodhi-grips-premium-pickleball-overgrips",
   },
