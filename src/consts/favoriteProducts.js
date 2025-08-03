@@ -15,7 +15,7 @@ export const favoriteProducts = [
   {
     favoriteTitle: "Favorite Control Paddle",
     img: "./11six24.png",
-    name: "11six24 Pegasus JellyBean",
+    name: "11six24 Pegasus Jelly Bean",
     externalLink: "https://11six24.com/products/pegasus-jelly-bean",
   },
   {
