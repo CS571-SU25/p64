@@ -1,4 +1,4 @@
-import IndividualLessonForm from "./IndividualLessonForm";
+import BookLessonForm from "./BookLessonForm";
 import { Container, Form } from "react-bootstrap";
 import { useState } from "react";
 import { lessonTypes } from "../../consts/lessonTypes";
@@ -61,7 +61,7 @@ export default function BookLesson() {
         {lesson.id === 0 ? (
           <div style={{ height: "80vh" }}>Please select a lesson type!</div>
         ) : (
-          <IndividualLessonForm
+          <BookLessonForm
             key={lesson.id}
             onFormSubmitSuccess={onFormSubmitSuccesss}
             {...lesson}

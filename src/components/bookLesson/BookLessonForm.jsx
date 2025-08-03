@@ -5,10 +5,10 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useRef } from "react";
-import ParticipantsFormGroup from "../bookLesson/ParticipantsFormGroup";
+import ParticipantsFormGroup from "./ParticipantsFormGroup";
 import { isWeekend } from "../../consts/isWeekend";
 
-export default function IndividualLessonForm(props) {
+export default function BookLessonForm(props) {
   const [formValidated, setFormValidated] = useState(false);
   const [dateValue, setDateValue] = useState(null);
   const [dateError, setDateError] = useState(false);

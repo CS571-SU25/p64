@@ -1,5 +1,5 @@
 import Modal from "react-bootstrap/Modal";
-import IndividualLessonForm from "../bookLesson/IndividualLessonForm";
+import BookLessonForm from "../bookLesson/BookLessonForm";
 
 export default function FormModal(props) {
   return (
@@ -9,7 +9,7 @@ export default function FormModal(props) {
       onHide={props.onHide}
       size="lg"
     >
-      <IndividualLessonForm
+      <BookLessonForm
         {...props}
         onFormSubmitSuccess={props.onFormSubmitSuccess}
       />
