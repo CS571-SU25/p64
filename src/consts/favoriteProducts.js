@@ -28,7 +28,7 @@ export const favoriteProducts = [
   {
     favoriteTitle: "Favorite Balls",
     img: "./franklin-x-40.png",
-    name: "Franklin X-40",
+    name: "Franklin X-40 Outdoor Pickleballs",
     externalLink:
       "https://pickleballcentral.com/x-performance-40-outdoor-ball/",
   },
