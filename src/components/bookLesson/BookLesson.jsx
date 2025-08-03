@@ -35,7 +35,7 @@ export default function BookLesson() {
       <AlertMessage
         showSuccessAlert={showSuccessAlert}
         setShowSuccessAlert={() => setShowSuccessAlert(() => false)}
-        message={"Lesson was successfully booked!"}
+        message={"Booking successful!"}
       />
       <Form.Group
         style={{ width: "60%", margin: "2rem auto", textAlign: "left" }}

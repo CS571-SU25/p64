@@ -19,7 +19,7 @@ export default function CoachingOpportunities() {
       <AlertMessage
         showSuccessAlert={showSuccessAlert}
         setShowSuccessAlert={() => setShowSuccessAlert(() => false)}
-        message={"Lesson was successfully booked!"}
+        message={"Booking successful!"}
       />
       <LessonCategories
         data={inPersonLessons}
