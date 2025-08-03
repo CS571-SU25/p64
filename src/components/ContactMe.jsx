@@ -82,7 +82,7 @@ export default function ContactMe() {
         onSubmit={handleSubmit}
         style={{
           margin: "2rem auto",
-          width: "50%",
+          width: "70%",
           textAlign: "left",
         }}
       >
