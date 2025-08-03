@@ -21,8 +21,9 @@ export default function BookLesson() {
   const handeLessonSelection = (e) => {
     const intValue = Number(e.target.value);
 
-    if (0 === intValue) {
+    if (0 == intValue) {
       setLesson({ id: 0 });
+      return;
     }
     const lesson = lessonTypes.find((l) => l.id === intValue);
 
