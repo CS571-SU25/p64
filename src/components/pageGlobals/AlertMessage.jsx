@@ -10,7 +10,7 @@ export default function AlertMessage(props) {
           dismissible
           className="ms-auto"
           style={{
-            width: "60%",
+            width: "30%",
             margin: "1rem",
             position: "absolute",
             right: 0,
