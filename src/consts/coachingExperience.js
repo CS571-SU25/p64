@@ -19,17 +19,6 @@ export const coachingExperience = [
     ],
   },
   {
-    id: 3,
-    startDate: "2021 Boy’s Tennis Season",
-    endDate: "",
-    location: "Green Bay",
-    title: "Director of Player Development",
-    tasks: [
-      "Assisted in organizing practices",
-      "Coached players during matches",
-    ],
-  },
-  {
     id: 4,
     startDate: "2021",
     endDate: "2022",
@@ -39,6 +28,17 @@ export const coachingExperience = [
       "Taught from ages 6-70",
       "Assisted in group lessons",
       "Taught Private Lessons",
+    ],
+  },
+  {
+    id: 3,
+    startDate: "2021 Boy’s Tennis Season",
+    endDate: "",
+    location: "Green Bay",
+    title: "Director of Player Development",
+    tasks: [
+      "Assisted in organizing practices",
+      "Coached players during matches",
     ],
   },
 ];
