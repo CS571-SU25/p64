@@ -56,8 +56,9 @@ export default function BookLessonForm(props) {
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
+    event.preventDefault();
+
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
     }
     if (!dateValue) {
@@ -67,6 +68,7 @@ export default function BookLessonForm(props) {
     setFormValidated(true);
 
     if (form.checkValidity() === false || (!dateValue && props.id !== 3)) {
+      event.stopPropagation();
       return;
     }
 
@@ -276,9 +278,7 @@ export default function BookLessonForm(props) {
             email={email}
             phoneNumber={phoneNumber}
           />
-          <Button variant="primary" onClick={(e) => handleSubmit(e)}>
-            Submit
-          </Button>
+          <Button type="submit">Submit</Button>
         </div>
       </Form>
     </div>
