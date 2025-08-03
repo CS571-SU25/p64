@@ -20,7 +20,7 @@ export default function Home() {
       <AlertMessage
         showSuccessAlert={showSuccessAlert}
         setShowSuccessAlert={() => setShowSuccessAlert(() => false)}
-        message={"Lesson was successfully booked!"}
+        message={"Booking successful!"}
       />
       <Image src="./colin-hitting.jpg" alt="Colin hitting a pickleball" fluid />
       <div style={{ margin: "1rem", textAlign: "center" }}>
