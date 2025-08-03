@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import ContactInfoForm from "./ContactInfoForm";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -12,6 +12,7 @@ export default function IndividualLessonForm(props) {
   const [formValidated, setFormValidated] = useState(false);
   const [dateValue, setDateValue] = useState(null);
   const [dateError, setDateError] = useState(false);
+  const [bookedLessons, setBookedLessons] = useState([]);
 
   const location = useRef();
   const participant = useRef();
@@ -25,6 +26,22 @@ export default function IndividualLessonForm(props) {
   const participant3 = useRef();
 
   const fileUpload = useRef();
+
+  useEffect(() => {
+    fetch(`https://cs571api.cs.wisc.edu/rest/su25/bucket/lessons`, {
+      headers: {
+        "X-CS571-ID": CS571.getBadgerId(),
+      },
+    })
+      .then((res) => res.json())
+      .then((json) => {
+        const allBookedLessons = Object.values(json.results)
+          .filter((result) => result.location !== null)
+          .sort((first, next) => new Date(first.date) - new Date(next.date))
+          .map((lesson) => new Date(lesson.date));
+        setBookedLessons(() => allBookedLessons);
+      });
+  }, []);
 
   const updateDateValue = (e) => {
     setDateValue(e);
@@ -118,6 +135,41 @@ export default function IndividualLessonForm(props) {
     return hour < 8 || hour > 19;
   };
 
+  const isSameDate = (date1, date2) =>
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate();
+
+  const timeAlreadyBooked = (timeValue, clockType) => {
+    const lessonsOnSameDate = bookedLessons.filter((blocked) => {
+      const selectedDate = new Date(timeValue);
+      return isSameDate(selectedDate, blocked);
+    });
+
+    if (lessonsOnSameDate.length === 0) return false;
+
+    const hour = timeValue.$H;
+    const minute = timeValue.$m;
+
+    if (clockType === "hours") {
+      return lessonsOnSameDate.some((blocked) => {
+        return blocked.getHours() === hour && blocked.getMinutes() === 0;
+      });
+    }
+
+    if (clockType === "minutes") {
+      return lessonsOnSameDate.some(
+        (blocked) =>
+          (blocked.getHours() === hour && blocked.getMinutes() === minute) ||
+          (blocked.getHours() + 1 === hour && minute === 0)
+      );
+    }
+  };
+
+  const shouldDisableTime = (timeValue, clockType) => {
+    return timeAlreadyBooked(timeValue, clockType) || isOutOfHours(timeValue);
+  };
+
   return (
     <div style={{ margin: "2rem" }}>
       <h1>{props.title}</h1>
@@ -165,7 +217,7 @@ export default function IndividualLessonForm(props) {
                   value={dateValue}
                   onChange={updateDateValue}
                   shouldDisableDate={isWeekend}
-                  shouldDisableTime={isOutOfHours}
+                  shouldDisableTime={shouldDisableTime}
                   minutesStep={30}
                   slotProps={{
                     textField: {
