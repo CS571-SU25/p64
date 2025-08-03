@@ -130,28 +130,23 @@ export default function IndividualLessonForm(props) {
 
   const isOutOfHours = (timeValue) => {
     const hour = timeValue.$H;
-    console.log(timeValue);
-
     return hour < 8 || hour > 19;
   };
 
-  const isSameDate = (date1, date2) =>
-    date1.getFullYear() === date2.getFullYear() &&
-    date1.getMonth() === date2.getMonth() &&
-    date1.getDate() === date2.getDate();
-
-  const timeAlreadyBooked = (timeValue, clockType) => {
-    const lessonsOnSameDate = bookedLessons.filter((blocked) => {
-      const selectedDate = new Date(timeValue);
-      return isSameDate(selectedDate, blocked);
+  const timeAlreadyBooked = (timeValue) => {
+    const lessonsOnSameDateAndTime = bookedLessons.filter((time) => {
+      const timeToSelect = new Date(timeValue);
+      return (
+        time.getFullYear() === timeToSelect.getFullYear() &&
+        time.getMonth() === timeToSelect.getMonth() &&
+        time.getDate() === timeToSelect.getDate()
+      );
     });
 
-    if (lessonsOnSameDate.length === 0) return false;
+    if (lessonsOnSameDateAndTime.length === 0) return false;
 
-    const hour = timeValue.$H;
-
-    return lessonsOnSameDate.some((blocked) => {
-      return blocked.getHours() === hour;
+    return lessonsOnSameDateAndTime.some((currentBookedTime) => {
+      return currentBookedTime.getHours() === timeValue.$H;
     });
   };
 
