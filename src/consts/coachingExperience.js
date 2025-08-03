@@ -24,7 +24,10 @@ export const coachingExperience = [
     endDate: "",
     location: "Green Bay",
     title: "Director of Player Development",
-    tasks: ["Assisted organizing practices", "Coached player's during matches"],
+    tasks: [
+      "Assisted in organizing practices",
+      "Coached players during matches",
+    ],
   },
   {
     id: 4,
