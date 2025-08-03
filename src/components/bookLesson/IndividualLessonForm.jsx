@@ -149,21 +149,10 @@ export default function IndividualLessonForm(props) {
     if (lessonsOnSameDate.length === 0) return false;
 
     const hour = timeValue.$H;
-    const minute = timeValue.$m;
 
-    if (clockType === "hours") {
-      return lessonsOnSameDate.some((blocked) => {
-        return blocked.getHours() === hour && blocked.getMinutes() === 0;
-      });
-    }
-
-    if (clockType === "minutes") {
-      return lessonsOnSameDate.some(
-        (blocked) =>
-          (blocked.getHours() === hour && blocked.getMinutes() === minute) ||
-          (blocked.getHours() + 1 === hour && minute === 0)
-      );
-    }
+    return lessonsOnSameDate.some((blocked) => {
+      return blocked.getHours() === hour;
+    });
   };
 
   const shouldDisableTime = (timeValue, clockType) => {
@@ -218,7 +207,7 @@ export default function IndividualLessonForm(props) {
                   onChange={updateDateValue}
                   shouldDisableDate={isWeekend}
                   shouldDisableTime={shouldDisableTime}
-                  minutesStep={30}
+                  views={["year", "month", "day", "hours"]}
                   slotProps={{
                     textField: {
                       required: true,
