@@ -6,7 +6,7 @@ export const pickleballJourneyData = [
     alt: "Club Pickleball Group Picture",
     heading: "UW-Eau Claire Pickleball Club",
     year: "2024",
-    text: "Colin was first introduced to pickleball while he was completing his undergraduate degree at the University of Wisconsin-Eau Claire. At the university, he met friends who were members of the school's Club Pickleball Team. Colin later joined the club team. He had a great time attending the club practices, and since he grew up playing tennis, he developed strong pickleball skills very quickly. The next academic year after joining, Colin became a Co-President of the club. In this role, he led club practices and organized the team's tournament travel.",
+    text: "Colin first got into pickleball when he joined the Club Pickleball Team at the University of Wisconsin-Eau Claire. A year after joining, he became Co-President of the club where he organized practices and team tournaments.",
   },
   {
     id: 2,
