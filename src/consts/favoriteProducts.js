@@ -26,7 +26,7 @@ export const favoriteProducts = [
       "https://bodhipickleball.com/collections/bodhi-grip-premium-overgrips/products/bodhi-grips-premium-pickleball-overgrips",
   },
   {
-    favoriteTitle: "Favorite Balls",
+    favoriteTitle: "Favorite Pickleballs",
     img: "./franklin-x-40.png",
     name: "Franklin X-40 Outdoor Pickleballs",
     externalLink:
