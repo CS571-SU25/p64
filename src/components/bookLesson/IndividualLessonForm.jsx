@@ -111,6 +111,13 @@ export default function IndividualLessonForm(props) {
     });
   };
 
+  const isOutOfHours = (timeValue) => {
+    const hour = timeValue.$H;
+    console.log(timeValue);
+
+    return hour < 8 || hour > 19;
+  };
+
   return (
     <div style={{ margin: "2rem" }}>
       <h1>{props.title}</h1>
@@ -158,6 +165,8 @@ export default function IndividualLessonForm(props) {
                   value={dateValue}
                   onChange={updateDateValue}
                   shouldDisableDate={isWeekend}
+                  shouldDisableTime={isOutOfHours}
+                  minutesStep={30}
                   slotProps={{
                     textField: {
                       required: true,
