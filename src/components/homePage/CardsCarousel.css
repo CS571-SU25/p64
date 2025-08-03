@@ -1,17 +1,11 @@
-.slider-arrow {
-  font-size: 24px;
+.slick-prev:before {
+  content: "◀";
   color: black;
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
 }
 
-.previous {
-  left: 10px;
-}
-
-.next {
-  right: 10px;
+.slick-next:before {
+  content: "▶";
+  color: black;
 }
 
 .slick-dots li button:before {

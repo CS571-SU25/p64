@@ -5,26 +5,12 @@ import "slick-carousel/slick/slick-theme.css";
 import "./CardsCarousel.css";
 
 export default function CoachingCardsCarousel(props) {
-  const PreviousArrow = ({ onClick }) => (
-    <div onClick={onClick} className="slider-arrow previous">
-      ◀
-    </div>
-  );
-
-  const NextArrow = ({ onClick }) => (
-    <div onClick={onClick} className="slider-arrow next">
-      ▶
-    </div>
-  );
-
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
-    nextArrow: <NextArrow />,
-    prevArrow: <PreviousArrow />,
     responsive: [
       {
         breakpoint: 1500,
