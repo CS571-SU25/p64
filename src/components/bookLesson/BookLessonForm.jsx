@@ -262,7 +262,11 @@ export default function BookLessonForm(props) {
               rows={5}
               id="additional-notes"
               as="textarea"
-              placeholder="Enter some notes about this lesson"
+              placeholder={
+                props.id === 3
+                  ? "Enter some notes about this footage"
+                  : "Enter some notes about this lesson"
+              }
             />
           </Form.Group>
         </div>
