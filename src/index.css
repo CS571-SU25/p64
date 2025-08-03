@@ -58,6 +58,7 @@ button:focus-visible {
 
 .MuiPickersInputBase-root {
   background-color: white;
+  color: black;
 }
 
 @media (prefers-color-scheme: light) {

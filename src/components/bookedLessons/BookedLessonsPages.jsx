@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import InPersonLessonsView from "./InPersonLessonsView";
 import { Tabs, Tab } from "react-bootstrap";
 import PendingFilmReviewGrid from "./PendingFilmReviewGrid";
+import "./BookedLessonsPage.css";
 
 export default function BookedLessonsPage(props) {
   const [allLessons, setAllLessons] = useState([]);
@@ -26,6 +27,7 @@ export default function BookedLessonsPage(props) {
       }}
       activeKey={key}
       onSelect={(k) => setKey(k)}
+      className="lesson-tabs"
     >
       <Tab eventKey="inPersonLessons" title="In-Person Lessons">
         <InPersonLessonsView allLessons={allLessons} />
