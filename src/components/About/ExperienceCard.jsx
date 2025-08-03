@@ -31,8 +31,10 @@ export default function ExperienceCard(props) {
       </Card.Subtitle>
       {props.startDate ? (
         <Card.Text>
-          {props.startDate}
-          {props.endDate ? <> - {props.endDate}</> : <></>}
+          <em>
+            {props.startDate}
+            {props.endDate ? <> - {props.endDate}</> : <></>}
+          </em>
         </Card.Text>
       ) : (
         <></>
