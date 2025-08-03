@@ -17,7 +17,7 @@ export const schoolExperiences = [
     endDate: "2019",
     location: "Green Bay Southwest High School",
     details: [
-      "#16 Ranked Doubles Team at the WIAA Division 1 Doubles State Tournament",
+      "#16 Ranked Doubles Team at the WIAA Division I State Tournament",
     ],
     src: "./south-west.jpg",
     alt: "Colin on the Court",

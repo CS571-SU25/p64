@@ -14,7 +14,7 @@ export default function TennisBackground() {
                 src={experience.src}
                 alt={experience.alt}
                 heading={experience.location}
-                height={"450px"}
+                height={"480px"}
                 subtitle={`${experience.startDate} - ${experience.endDate}`}
                 startDate={experience.startDate}
                 endDate={experience.endDate}

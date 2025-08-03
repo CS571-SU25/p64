@@ -16,8 +16,7 @@ export default function ExperienceCard(props) {
           style={{
             width: "200px",
             height: "200px",
-            margin: "auto",
-            marginBottom: "1rem",
+            margin: "0 auto",
           }}
           src={props.src}
           alt={props.alt}
@@ -25,7 +24,13 @@ export default function ExperienceCard(props) {
       ) : (
         <></>
       )}
-      <Card.Title>{props.heading}</Card.Title>
+      <Card.Title
+        style={{
+          marginTop: "1rem",
+        }}
+      >
+        {props.heading}
+      </Card.Title>
       <Card.Subtitle className="mb-2 text-muted">
         {props.subheading}
       </Card.Subtitle>
