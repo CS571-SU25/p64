@@ -38,9 +38,9 @@ export default function BookedLessonCard(props) {
       <Card.Body style={{ padding: 0 }}>
         <div style={{ height: "150px", margin: "auto" }}>
           {props.participants.length == 1 ? (
-            <h5>Participant</h5>
+            <strong>Participant</strong>
           ) : (
-            <h5>Participants</h5>
+            <strong>Participants</strong>
           )}
           <ListGroup className="list-group-flush">
             {props.participants.map((p, index) => {
