@@ -6,7 +6,7 @@ import TennisBackground from "./TennisBackground";
 export default function AboutPage() {
   return (
     <div>
-      <AboutColin />
+      <AboutColin showHeading={true} />
       <CoachingExperienceGrid />
       <hr />
       <GettingIntoPickleball />

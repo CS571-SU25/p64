@@ -33,7 +33,7 @@ export default function Home() {
           showAlert={showAlert}
         />
       </section>
-      <AboutColin />
+      <AboutColin showHeading={false} />
       <PaddlesGrid />
     </div>
   );

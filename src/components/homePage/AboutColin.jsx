@@ -1,6 +1,6 @@
 import { Image, Row, Col } from "react-bootstrap";
 
-export default function AboutColin() {
+export default function AboutColin(props) {
   return (
     <Row style={{ backgroundColor: "#e68649", width: "100%", margin: "0" }}>
       <Col sm={12} md={12} lg={6} style={{ padding: "0" }}>
@@ -21,6 +21,7 @@ export default function AboutColin() {
           lineHeight: "2rem",
         }}
       >
+        {props.showHeading === true ? <h1>About Colin</h1> : <></>}
         Colin is a 5.0+ pickleball player who actively competes in PPA Pro
         Qualifiers, bringing high-level experience and competitive insights to
         his coaching. Before making the switch to pickleball, he played three
