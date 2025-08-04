@@ -9,7 +9,7 @@ export const schoolExperiences = [
       "Second Place Sectional Finish at #1 Doubles",
     ],
     src: "./colin-ashwaubenon.jpg",
-    alt: "Colin and his Ashwaubenon Doubles Partner",
+    alt: "Colin and his Ashwaubenon doubles partner",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ export const schoolExperiences = [
     location: "Green Bay Southwest High School",
     details: ["#16 Ranked Doubles Team at WIAA Division I State Tournament"],
     src: "./south-west.jpg",
-    alt: "Colin on the Court",
+    alt: "Colin on the tennis court playing for Southwest High School",
   },
   {
     id: 3,
