@@ -4,8 +4,8 @@ import { favoriteProducts } from "../../consts/favoriteProducts";
 
 export default function FavoriteProducts() {
   return (
-    <div style={{ margin: "3rem" }}>
-      <h1>Colin's Favorite Products</h1>
+    <div>
+      <h1 style={{ margin: "1rem" }}>Colin's Favorite Products</h1>
       <Container>
         <Row>
           {favoriteProducts.map((product) => {
