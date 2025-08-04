@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
+import { Row, Col, Form, Button } from "react-bootstrap";
 import ContactInfoForm from "./ContactInfoForm";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -195,25 +195,37 @@ export default function BookLessonForm(props) {
                   </option>
                 </Form.Select>
               </Form.Group>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateTimePicker
-                  required
-                  disablePast
-                  label="Select lesson date"
-                  value={dateValue}
-                  onChange={updateDateValue}
-                  shouldDisableDate={isWeekend}
-                  shouldDisableTime={shouldDisableTime}
-                  views={["year", "month", "day", "hours"]}
-                  slotProps={{
-                    textField: {
-                      required: true,
-                      error: dateError,
-                      helperText: dateError ? "This field is required" : "",
-                    },
-                  }}
-                />
-              </LocalizationProvider>
+              <Row>
+                <Form.Group>
+                  <Col sm={12}>
+                    <Form.Label htmlFor="lessonDate">Lesson Date</Form.Label>
+                  </Col>
+                  <Col sm={12}>
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <DateTimePicker
+                        required
+                        disablePast
+                        id="lessonDate"
+                        label="Select lesson date"
+                        value={dateValue}
+                        onChange={updateDateValue}
+                        shouldDisableDate={isWeekend}
+                        shouldDisableTime={shouldDisableTime}
+                        views={["year", "month", "day", "hours"]}
+                        slotProps={{
+                          textField: {
+                            required: true,
+                            error: dateError,
+                            helperText: dateError
+                              ? "This field is required"
+                              : "",
+                          },
+                        }}
+                      />
+                    </LocalizationProvider>
+                  </Col>
+                </Form.Group>
+              </Row>
             </>
           ) : (
             <></>
