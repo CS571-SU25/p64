@@ -21,20 +21,16 @@ export default function BookedLessonsPage(props) {
   }, []);
 
   return (
-    <Tabs
-      style={{
-        marginTop: "2rem",
-      }}
-      activeKey={key}
-      onSelect={(k) => setKey(k)}
-      className="lesson-tabs"
-    >
-      <Tab eventKey="inPersonLessons" title="In-Person Lessons">
-        <InPersonLessonsView allLessons={allLessons} />
-      </Tab>
-      <Tab eventKey="onlineVideoReview" title="Pending Film Reviews">
-        <PendingFilmReviewGrid allLessons={allLessons} />
-      </Tab>
-    </Tabs>
+    <div>
+      <h1 style={{ margin: "1rem" }}>Booked Lessons</h1>
+      <Tabs activeKey={key} onSelect={(k) => setKey(k)} className="lesson-tabs">
+        <Tab eventKey="inPersonLessons" title="In-Person Lessons">
+          <InPersonLessonsView allLessons={allLessons} />
+        </Tab>
+        <Tab eventKey="onlineVideoReview" title="Pending Film Reviews">
+          <PendingFilmReviewGrid allLessons={allLessons} />
+        </Tab>
+      </Tabs>
+    </div>
   );
 }
