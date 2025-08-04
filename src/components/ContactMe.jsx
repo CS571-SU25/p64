@@ -101,7 +101,12 @@ export default function ContactMe() {
           />
           <Form.Control.Feedback type="invalid">Required</Form.Control.Feedback>
         </Form.Group>
-        <ContactInfoForm name={name} email={email} phoneNumber={phoneNumber} />
+        <ContactInfoForm
+          name={name}
+          email={email}
+          phoneNumber={phoneNumber}
+          useH2Heading={true}
+        />
         <Button variant="primary" type="submit" onSubmit={handleSubmit}>
           Submit
         </Button>

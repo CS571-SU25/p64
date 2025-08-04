@@ -274,6 +274,7 @@ export default function BookLessonForm(props) {
         </div>
         <div>
           <ContactInfoForm
+            useH2Heading={false}
             name={name}
             email={email}
             phoneNumber={phoneNumber}
