@@ -153,6 +153,7 @@ export default function InPersonLessonsView(props) {
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     id="lessonDate"
+                    label="Search by lesson date"
                     value={dateValue}
                     onChange={(newValue) => setDateValue(newValue)}
                     shouldDisableDate={isWeekend}
