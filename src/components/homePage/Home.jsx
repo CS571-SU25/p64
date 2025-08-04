@@ -22,7 +22,7 @@ export default function Home() {
         message={"Booking successful!"}
       />
       <Image src="./colin-hitting.jpg" alt="Colin hitting a pickleball" fluid />
-      <div style={{ margin: "1rem", textAlign: "center" }}>
+      <section style={{ margin: "1rem", textAlign: "center" }}>
         <h1 style={{ margin: "1rem" }}>Coaching Opportunities</h1>
         <h2 style={{ margin: "1rem" }}>
           Get In-Person or Online Coaching from Colin
@@ -32,7 +32,7 @@ export default function Home() {
           height={"300px"}
           showAlert={showAlert}
         />
-      </div>
+      </section>
       <AboutColin />
       <PaddlesGrid />
     </div>

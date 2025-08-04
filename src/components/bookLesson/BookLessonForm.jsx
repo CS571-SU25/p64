@@ -170,7 +170,7 @@ export default function BookLessonForm(props) {
         onSubmit={handleSubmit}
       >
         <div>
-          <h2>Lesson Info</h2>
+          <h3>Lesson Info</h3>
           {props.id === 3 ? (
             <Form.Group className="mb-3">
               <Form.Label htmlFor="Video File Upload">Video footage</Form.Label>

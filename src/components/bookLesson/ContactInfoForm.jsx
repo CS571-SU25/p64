@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 export default function ContactInfoForm(props) {
   return (
     <div style={{ marginTop: "1rem" }}>
-      <h2>Your Contact Info</h2>
+      <h3>Your Contact Info</h3>
       <Form.Group style={{ margin: "1rem 0" }}>
         <Form.Label htmlFor="name">Name</Form.Label>
         <Form.Control

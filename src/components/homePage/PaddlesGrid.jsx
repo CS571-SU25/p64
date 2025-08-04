@@ -4,7 +4,7 @@ import { favoriteProducts } from "../../consts/favoriteProducts";
 
 export default function PaddlesGrid() {
   return (
-    <div style={{ margin: 40 }}>
+    <section style={{ margin: 40 }}>
       <h1 style={{ textAlign: "center" }}>Must Try Paddles</h1>
       <h2 style={{ margin: "1rem" }}>
         Check Out Colin's Top Three Favorite Paddles
@@ -28,6 +28,6 @@ export default function PaddlesGrid() {
             })}
         </Row>
       </Container>
-    </div>
+    </section>
   );
 }
