@@ -198,14 +198,13 @@ export default function BookLessonForm(props) {
               <Row>
                 <Form.Group>
                   <Col sm={12}>
-                    <Form.Label htmlFor="lessonDate">Lesson Date</Form.Label>
+                    <Form.Label>Lesson Date</Form.Label>
                   </Col>
                   <Col sm={12}>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <DateTimePicker
                         required
                         disablePast
-                        id="lessonDate"
                         label="Select lesson date"
                         value={dateValue}
                         onChange={updateDateValue}

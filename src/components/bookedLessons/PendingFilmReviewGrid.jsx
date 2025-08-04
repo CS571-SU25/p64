@@ -87,26 +87,26 @@ export default function PendingFilmReviewGrid(props) {
       <Row style={{ textAlign: "left", margin: "1rem auto" }}>
         <Col sm={12} lg={6} style={{ margin: "1rem 0" }}>
           <Form.Group>
-            <Form.Label required htmlFor="participantName">
+            <Form.Label required htmlFor="filmParticipantName">
               Participant Name
             </Form.Label>
             <Form.Control
               value={participantName}
               onChange={(e) => setParticipantName(e.target.value)}
-              id="participantName"
+              id="filmParticipantName"
               placeholder="Search by participant name"
             />
           </Form.Group>
         </Col>
         <Col sm={12} lg={6} style={{ margin: "1rem 0" }}>
           <Form.Group>
-            <Form.Label required htmlFor="bookedByName">
+            <Form.Label required htmlFor="filmBookedByName">
               Booked by Name
             </Form.Label>
             <Form.Control
               value={bookedByName}
               onChange={(e) => setBookedByName(e.target.value)}
-              id="bookedByName"
+              id="filmBookedByName"
               placeholder="Search by the person who booked the lesson"
             />
           </Form.Group>
@@ -115,12 +115,11 @@ export default function PendingFilmReviewGrid(props) {
           <Row>
             <Form.Group>
               <Col sm={12}>
-                <Form.Label htmlFor="submittedDate">Submitted Date</Form.Label>
+                <Form.Label>Submitted Date</Form.Label>
               </Col>
               <Col sm={12}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
-                    id="submittedDate"
                     label="Search by submitted date"
                     value={submittedDateValue}
                     onChange={(newValue) => setSubmittedDateValue(newValue)}

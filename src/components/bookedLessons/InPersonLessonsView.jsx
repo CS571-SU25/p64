@@ -103,26 +103,26 @@ export default function InPersonLessonsView(props) {
       <Row style={{ textAlign: "left", margin: "1rem auto" }}>
         <Col sm={12} lg={6} style={{ margin: "1rem 0" }}>
           <Form.Group>
-            <Form.Label required htmlFor="participantName">
+            <Form.Label required htmlFor="lessonParticipantName">
               Participant Name
             </Form.Label>
             <Form.Control
               value={participantName}
               onChange={(e) => setParticipantName(e.target.value)}
-              id="participantName"
+              id="lessonParticipantName"
               placeholder="Search by participant name"
             />
           </Form.Group>
         </Col>
         <Col sm={12} lg={6} style={{ margin: "1rem 0" }}>
           <Form.Group>
-            <Form.Label required htmlFor="bookedByName">
+            <Form.Label required htmlFor="lessonBookedByName">
               Booked by Name
             </Form.Label>
             <Form.Control
               value={bookedByName}
               onChange={(e) => setBookedByName(e.target.value)}
-              id="bookedByName"
+              id="lessonBookedByName"
               placeholder="Search by the person who booked the lesson"
             />
           </Form.Group>
@@ -147,12 +147,11 @@ export default function InPersonLessonsView(props) {
           <Row>
             <Form.Group>
               <Col sm={12}>
-                <Form.Label htmlFor="lessonDate">Lesson Date</Form.Label>
+                <Form.Label>Lesson Date</Form.Label>
               </Col>
               <Col sm={12}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
-                    id="lessonDate"
                     label="Search by lesson date"
                     value={dateValue}
                     onChange={(newValue) => setDateValue(newValue)}
