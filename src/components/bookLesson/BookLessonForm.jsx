@@ -173,9 +173,9 @@ export default function BookLessonForm(props) {
           <h3>Lesson Info</h3>
           {props.id === 3 ? (
             <Form.Group className="mb-3">
-              <Form.Label htmlFor="Video File Upload">Video footage</Form.Label>
+              <Form.Label htmlFor="videoFileUpload">Video footage</Form.Label>
               <Form.Control
-                id="Video File Upload"
+                id="videoFileUpload"
                 required
                 type="file"
                 ref={fileUpload}
@@ -220,10 +220,10 @@ export default function BookLessonForm(props) {
           )}
           {props.id === 1 ? (
             <Form.Group style={{ margin: "1rem 0" }}>
-              <Form.Label htmlFor="Participant">Participant</Form.Label>
+              <Form.Label htmlFor="participant">Participant</Form.Label>
               <Form.Control
                 ref={participant}
-                id="Participant"
+                id="participant"
                 required
                 type="name"
                 placeholder="Enter name"
@@ -234,12 +234,10 @@ export default function BookLessonForm(props) {
           )}
           {props.id === 3 ? (
             <Form.Group style={{ margin: "1rem 0" }}>
-              <Form.Label htmlFor="Person to Review">
-                Person to Review
-              </Form.Label>
+              <Form.Label htmlFor="personToReview">Person to Review</Form.Label>
               <Form.Control
                 ref={participant}
-                id="Person to Review"
+                id="personToReview"
                 required
                 type="name"
                 placeholder="Enter name"
@@ -258,11 +256,11 @@ export default function BookLessonForm(props) {
             <></>
           )}
           <Form.Group style={{ margin: "1rem 0" }}>
-            <Form.Label htmlFor="additional-notes">Additional Notes</Form.Label>
+            <Form.Label htmlFor="additionalNotes">Additional Notes</Form.Label>
             <Form.Control
               ref={additionalNotes}
               rows={5}
-              id="additional-notes"
+              id="additionalNotes"
               as="textarea"
               placeholder={
                 props.id === 3
