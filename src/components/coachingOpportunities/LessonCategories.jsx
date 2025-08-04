@@ -6,7 +6,7 @@ export default function LessonCategories(props) {
     <Container style={{ backgroundColor: "#e68649", margin: "2rem auto" }}>
       <Row>
         <Col style={{ padding: "1rem" }}>
-          <h1>{props.heading}</h1>
+          <h2>{props.heading}</h2>
         </Col>
       </Row>
       <Row>

@@ -21,6 +21,7 @@ export default function CoachingOpportunities() {
         setShowSuccessAlert={() => setShowSuccessAlert(() => false)}
         message={"Booking successful!"}
       />
+      <h1 style={{ margin: "2rem" }}>Coaching Opportunities</h1>
       <LessonCategories
         data={inPersonLessons}
         heading={"In-Person Lessons"}
