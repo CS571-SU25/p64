@@ -1,7 +1,6 @@
 import Image from "react-bootstrap/Image";
-import CardsCarousel from "./CardsCarousel";
+import PaddlesGrid from "./PaddlesGrid";
 import AboutColin from "./AboutColin";
-import { favoriteProducts } from "../../consts/favoriteProducts";
 import LessonTypesGrid from "./LessonTypesGrid";
 import AlertMessage from "../pageGlobals/AlertMessage";
 import { useState } from "react";
@@ -35,11 +34,7 @@ export default function Home() {
         />
       </div>
       <AboutColin />
-      <CardsCarousel
-        heading={"Colin's Favorite Products"}
-        showLessonCard={false}
-        items={favoriteProducts}
-      />
+      <PaddlesGrid />
     </div>
   );
 }
