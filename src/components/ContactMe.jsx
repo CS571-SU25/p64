@@ -95,7 +95,7 @@ export default function ContactMe() {
             required
             id="question"
             as="textarea"
-            rows={5}
+            rows={7}
             placeholder="Please write your question here"
             ref={question}
           />
