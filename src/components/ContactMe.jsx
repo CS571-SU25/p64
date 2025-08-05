@@ -75,7 +75,7 @@ export default function ContactMe() {
       ) : (
         <></>
       )}
-      <h1>Contact Me</h1>
+      <h1>Contact Colin</h1>
       <Form
         noValidate
         validated={validated}
